@@ -1,6 +1,8 @@
 import pybullet as p
 import time
 import pybullet_data
+import pyrosim.pyrosim as pyrosim
+
 
 # This creates an object, physicsClient, which handles the physics, 
 # and draws the results to a Graphical User Interface (GUI).
@@ -12,8 +14,11 @@ planeId = p.loadURDF("plane.urdf")
 robotId = p.loadURDF("robot.urdf")
 
 p.loadSDF("world.sdf")
+pyrosim.Prepare_To_Simulate(robotId)
+
 for i in range(2000):
     time.sleep(1/60)
     p.stepSimulation()
-    print(i)
+    frontLegTouch = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
+    print(frontLegTouch)
 p.disconnect()
