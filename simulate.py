@@ -27,5 +27,5 @@ p.disconnect()
 
 print(frontLegSensorValues)
 
-with open('disk/sensor_data.npy', 'wb') as f:
+with open('data/backLegSensorValues.npy', 'wb') as f:
     numpy.save(f, frontLegSensorValues)
