@@ -6,6 +6,18 @@ import numpy
 import math
 import random
 
+
+def scale(num):
+    pi = math.pi
+    if num < 0.5:    
+        num = num*(-1*pi/2.0)
+    else:
+        num = num*(pi/2.0)
+    return num/8
+
+for i in range(500):
+    print(scale(random.random()))
+
 # This creates an object, physicsClient, which handles the physics, 
 # and draws the results to a Graphical User Interface (GUI).
 physicsClient = p.connect(p.GUI)
@@ -30,11 +42,14 @@ for i in range(runs):
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
 
+    targetAngles = []
+
+
     pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_BackLeg", 
-controlMode = p.POSITION_CONTROL, targetPosition = -1 * math.pi/4.0, maxForce = 500)
+controlMode = p.POSITION_CONTROL, targetPosition = scale(random.random()), maxForce = 500)
 
     pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_FrontLeg", 
-controlMode = p.POSITION_CONTROL, targetPosition = math.pi/4.0, maxForce = 500)
+controlMode = p.POSITION_CONTROL, targetPosition = scale(random.random()), maxForce = 500)
 
 p.disconnect()
 
