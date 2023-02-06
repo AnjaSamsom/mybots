@@ -5,10 +5,10 @@ import pyrosim.pyrosim as pyrosim
 import numpy
 import math
 import random
-
+pi = math.pi
 
 def scale(num):
-    pi = math.pi
+
     if num < 0.5:    
         num = num*(-1*pi/2.0)
     else:
@@ -35,21 +35,24 @@ runs = 1000
 frontLegSensorValues = numpy.zeros(runs)
 backLegSensorValues = numpy.zeros(runs)
 
+numsArray = 2*pi*(numpy.arange(runs) / runs)
+
 
 for i in range(runs):
-    time.sleep(1/60)
+    time.sleep(1/240)
     p.stepSimulation()
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
 
-    targetAngles = []
+    targetAngles = numpy.sin(numsArray)/(pi*4)
 
+    print(targetAngles[i])
 
     pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_BackLeg", 
-controlMode = p.POSITION_CONTROL, targetPosition = scale(random.random()), maxForce = 500)
+controlMode = p.POSITION_CONTROL, targetPosition = targetAngles[i], maxForce = 500)
 
     pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_FrontLeg", 
-controlMode = p.POSITION_CONTROL, targetPosition = scale(random.random()), maxForce = 500)
+controlMode = p.POSITION_CONTROL, targetPosition = targetAngles[i], maxForce = 500)
 
 p.disconnect()
 
