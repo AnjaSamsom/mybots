@@ -31,7 +31,7 @@ p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate(robotId)
 
 runs = 1000
-amplitude = pi/1
+amplitude = pi/4
 frequency = 1
 phaseOffset = 0
 
@@ -40,7 +40,12 @@ frontLegSensorValues = numpy.zeros(runs)
 backLegSensorValues = numpy.zeros(runs)
 
 numsArray = 2*pi*(numpy.arange(runs) / runs)
-targetAngles = (pi/4)*numpy.sin(numsArray)
+#targetAngles = (pi/4)*numpy.sin(numsArray)
+#targetAngles = numpy.sin(numsArray)
+
+targetAngles = numpy.zeros(runs)
+for i in range(len(numsArray)):
+    targetAngles[i] = amplitude * numpy.sin(frequency * i + phaseOffset)
 
 for i in range(runs):
     time.sleep(1/240)
