@@ -14,5 +14,5 @@ matplotlib.pyplot.show()
 
 
 
-matplotlib.pyplot.plot(arrayData, linewidth=1, label = "back leg")
+matplotlib.pyplot.plot(arrayData, linewidth=1, label = "")
 matplotlib.pyplot.show()
