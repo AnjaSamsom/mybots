@@ -3,9 +3,8 @@ import time
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import numpy
-import math
 import random
-pi = math.pi
+pi = numpy.pi
 
 def scale(num):
 
@@ -31,33 +30,36 @@ p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate(robotId)
 
 runs = 1000
-amplitude = pi/4
-frequency = 1
-phaseOffset = 0
-
 
 frontLegSensorValues = numpy.zeros(runs)
 backLegSensorValues = numpy.zeros(runs)
 
 numsArray = 2*pi*(numpy.arange(runs) / runs)
-#targetAngles = (pi/4)*numpy.sin(numsArray)
-#targetAngles = numpy.sin(numsArray)
 
-targetAngles = numpy.zeros(runs)
-for i in range(len(numsArray)):
-    targetAngles[i] = amplitude * numpy.sin(frequency * i + phaseOffset)
+amplitudeF = pi/4
+frequencyF = 6
+phaseOffsetF = 0
+
+amplitudeB = pi/4
+frequencyB = 6
+phaseOffsetB = pi/4
+
+
+targetAnglesF = amplitudeF*numpy.sin(frequencyF * numsArray + phaseOffsetF)
+targetAnglesB = amplitudeB*numpy.sin(frequencyB * numsArray + phaseOffsetB)
+
 
 for i in range(runs):
-    time.sleep(1/240)
+    time.sleep(1/60)
     p.stepSimulation()
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
 
     pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_BackLeg", 
-controlMode = p.POSITION_CONTROL, targetPosition = targetAngles[i], maxForce = 500)
+controlMode = p.POSITION_CONTROL, targetPosition = targetAnglesF[i], maxForce = 500)
 
     pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_FrontLeg", 
-controlMode = p.POSITION_CONTROL, targetPosition = targetAngles[i], maxForce = 500)
+controlMode = p.POSITION_CONTROL, targetPosition = targetAnglesB[i], maxForce = 500)
 
 p.disconnect()
 
@@ -68,5 +70,8 @@ with open('data/frontLegSensorValues.npy', 'wb') as f:
 with open('data/backLegSensorValues.npy', 'wb') as f:
     numpy.save(f, backLegSensorValues)
 
-with open('data/arrayData.npy', 'wb') as f:
-    numpy.save(f, targetAngles)
+with open('data/arrayDataF.npy', 'wb') as f:
+    numpy.save(f, targetAnglesF)
+
+with open('data/arrayDataB.npy', 'wb') as f:
+    numpy.save(f, targetAnglesB)

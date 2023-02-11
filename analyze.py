@@ -4,7 +4,9 @@ import matplotlib.pyplot
 
 frontLegSensorValues = numpy.load("data/frontLegSensorValues.npy")
 backLegSensorValues = numpy.load("data/backLegSensorValues.npy")
-arrayData = numpy.load("data/arrayData.npy")
+arrayDataF = numpy.load("data/arrayDataF.npy")
+arrayDataB = numpy.load("data/arrayDataB.npy")
+
 
 
 
@@ -15,6 +17,7 @@ matplotlib.pyplot.show()
 
 
 
-matplotlib.pyplot.plot(arrayData, linewidth=1, label = "targetAngles")
+matplotlib.pyplot.plot(arrayDataF, linewidth=3.5, label = "forward")
+matplotlib.pyplot.plot(arrayDataB, linewidth=1, label = "backward")
 matplotlib.pyplot.legend()
 matplotlib.pyplot.show()
