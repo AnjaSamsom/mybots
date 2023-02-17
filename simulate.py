@@ -4,7 +4,9 @@ import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import numpy
 import random
-pi = numpy.pi
+import constants as c
+
+
 
 def scale(num):
 
@@ -34,9 +36,9 @@ runs = 1000
 frontLegSensorValues = numpy.zeros(runs)
 backLegSensorValues = numpy.zeros(runs)
 
-numsArray = 2*pi*(numpy.arange(runs) / runs)
+numsArray = 2*c.pi*(numpy.arange(runs) / runs)
 
-amplitudeF = pi/4
+amplitudeF = c.pi/4
 frequencyF = 6
 phaseOffsetF = 0
 
