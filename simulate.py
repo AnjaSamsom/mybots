@@ -3,23 +3,7 @@ simulation = SIMULATION()
 simulation.Run()
 
 
-""" import pybullet as p
-import time
-import pybullet_data
-import pyrosim.pyrosim as pyrosim
-import numpy
-import random
-import constants as c
-
-
-
-# This creates an object, physicsClient, which handles the physics, 
-# and draws the results to a Graphical User Interface (GUI).
-
-
-
-frontLegSensorValues = numpy.zeros(c.runs)
-backLegSensorValues = numpy.zeros(c.runs)
+"""
 
 numsArray = 2*c.pi*(numpy.arange(c.runs) / c.runs)
 
