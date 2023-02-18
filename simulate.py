@@ -41,8 +41,6 @@ controlMode = p.POSITION_CONTROL, targetPosition = targetAnglesF[i], maxForce = 
     pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_FrontLeg", 
 controlMode = p.POSITION_CONTROL, targetPosition = targetAnglesB[i], maxForce = 500)
 
-p.disconnect()
-
 
 with open('data/frontLegSensorValues.npy', 'wb') as f:
     numpy.save(f, frontLegSensorValues)

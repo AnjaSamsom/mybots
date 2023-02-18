@@ -1,7 +1,7 @@
 import numpy
 
 pi = numpy.pi
-runs = 1000
+runs = 100
 
 amplitudeF = pi/4
 frequencyF = 6
