@@ -13,4 +13,4 @@ class SIMULATION:
         p.setGravity(0,0,-9.8)  
         self.world = WORLD()
         self.robot = ROBOT()
-        pyrosim.Prepare_To_Simulate(ROBOT.robotId)
+        pyrosim.Prepare_To_Simulate(self.robotId)
