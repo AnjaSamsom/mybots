@@ -6,19 +6,6 @@ import numpy
 import random
 import constants as c
 
-
-
-def scale(num):
-
-    if num < 0.5:    
-        num = num*(-1*pi/2.0)
-    else:
-        num = num*(pi/2.0)
-    return num/8
-
-for i in range(500):
-    print(scale(random.random()))
-
 # This creates an object, physicsClient, which handles the physics, 
 # and draws the results to a Graphical User Interface (GUI).
 physicsClient = p.connect(p.GUI)
@@ -31,27 +18,18 @@ robotId = p.loadURDF("robot.urdf")
 p.loadSDF("world.sdf")
 pyrosim.Prepare_To_Simulate(robotId)
 
-runs = 1000
 
-frontLegSensorValues = numpy.zeros(runs)
-backLegSensorValues = numpy.zeros(runs)
+frontLegSensorValues = numpy.zeros(c.runs)
+backLegSensorValues = numpy.zeros(c.runs)
 
-numsArray = 2*c.pi*(numpy.arange(runs) / runs)
-
-amplitudeF = c.pi/4
-frequencyF = 6
-phaseOffsetF = 0
-
-amplitudeB = pi/4
-frequencyB = 6
-phaseOffsetB = pi/4
+numsArray = 2*c.pi*(numpy.arange(c.runs) / c.runs)
 
 
-targetAnglesF = amplitudeF*numpy.sin(frequencyF * numsArray + phaseOffsetF)
-targetAnglesB = amplitudeB*numpy.sin(frequencyB * numsArray + phaseOffsetB)
+targetAnglesF = c.amplitudeF*numpy.sin(c.frequencyF * numsArray + c.phaseOffsetF)
+targetAnglesB = c.amplitudeB*numpy.sin(c.frequencyB * numsArray + c.phaseOffsetB)
 
 
-for i in range(runs):
+for i in range(c.runs):
     time.sleep(1/60)
     p.stepSimulation()
     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
