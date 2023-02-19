@@ -25,6 +25,7 @@ class SIMULATION:
             p.stepSimulation()
             self.robot.Sense(t)
             self.robot.Act(t)
+        self.MOTOR.Save_Values()
 
 
     def __del__(self):

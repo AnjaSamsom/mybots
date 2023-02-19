@@ -4,6 +4,7 @@ import pyrosim.pyrosim as pyrosim
 from sensor import SENSOR
 from motor import MOTOR
 import constants as c
+import numpy
 
 
 class ROBOT:
@@ -34,5 +35,4 @@ class ROBOT:
     def Act(self, t):
         for i in self.motors:
             self.motors[i].Set_Value(self.robotId, t)
-
 

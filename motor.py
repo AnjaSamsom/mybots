@@ -30,7 +30,9 @@ class MOTOR:
         targetPosition = self.motorValues[t],
         maxForce = 500)
 
-
+    
     def Save_Values(self):
         with open('data/' +self.jointName+ 'SensorValues.npy', 'wb') as f:
             numpy.save(f, self.jointName+ 'SensorValues')
+
+
