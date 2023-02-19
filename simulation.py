@@ -24,13 +24,7 @@ class SIMULATION:
             time.sleep(1/60)
             p.stepSimulation()
             self.robot.Sense(t)
-        """ 
-            pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_BackLeg", 
-    controlMode = p.POSITION_CONTROL, targetPosition = targetAnglesF[i], maxForce = 500)
 
-            pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_FrontLeg", 
-    controlMode = p.POSITION_CONTROL, targetPosition = targetAnglesB[i], maxForce = 500)
- """
 
     def __del__(self):
         p.disconnect()
