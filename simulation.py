@@ -19,11 +19,11 @@ class SIMULATION:
         self.robot = ROBOT()
 
     def Run(self):
-        for i in range(c.runs):
-            print(i)
+        for t in range(c.runs):
+            print(t)
             time.sleep(1/60)
             p.stepSimulation()
-            self.robot.Sense()
+            self.robot.Sense(t)
         """ 
             pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_BackLeg", 
     controlMode = p.POSITION_CONTROL, targetPosition = targetAnglesF[i], maxForce = 500)
