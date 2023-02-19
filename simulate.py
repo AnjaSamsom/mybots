@@ -6,11 +6,6 @@ simulation.Run()
 """
 
 
-
-targetAnglesF = c.amplitudeF*numpy.sin(c.frequencyF * numsArray + c.phaseOffsetF)
-targetAnglesB = c.amplitudeB*numpy.sin(c.frequencyB * numsArray + c.phaseOffsetB)
-
-
 with open('data/frontLegSensorValues.npy', 'wb') as f:
     numpy.save(f, frontLegSensorValues)
 
