@@ -6,7 +6,7 @@ import numpy
 import random
 pi = numpy.pi
 
-// anja
+#something is wrong with github
 def scale(num):
 
     if num < 0.5:    
