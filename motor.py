@@ -25,3 +25,6 @@ class MOTOR:
         pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_FrontLeg", 
     controlMode = p.POSITION_CONTROL, targetPosition = targetAnglesB[i], maxForce = 500)
 """
+
+    def Set_Value(self):
+        pass

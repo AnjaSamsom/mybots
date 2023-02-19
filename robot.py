@@ -31,6 +31,8 @@ class ROBOT:
             self.motors[jointName] = MOTOR(jointName)
 
     def Act(self):
-        pass
+        for i in self.motors:
+            print(i)
+            #self.motors[i].Set_Value(self)
 
 
