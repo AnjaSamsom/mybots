@@ -15,7 +15,7 @@ class MOTOR:
         self.numsArray = 2*c.pi*(numpy.arange(c.runs) / c.runs)
 
 
-        self.motorValues = self.amplitude*numpy.sin(self.frequency * self.numsArray + self.phaseOffset)
+        self.motorValues = self.amplitude*numpy.sin(self.frequency * self.numsArray + self.offset)
 
 
         """

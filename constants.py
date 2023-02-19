@@ -6,7 +6,7 @@ runs = 100
 
 amplitude = pi/4
 frequency = 6
-phaseOffset = 0
+offset = 0
 
 amplitudeF = pi/4
 frequencyF = 6

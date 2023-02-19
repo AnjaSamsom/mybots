@@ -12,6 +12,7 @@ class ROBOT:
         self.robotId = p.loadURDF("robot.urdf")
         pyrosim.Prepare_To_Simulate(self.robotId)
         ROBOT.Prepare_To_Sense(self)
+        ROBOT.Prepare_To_Act(self)
 
 
 
