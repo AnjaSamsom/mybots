@@ -21,9 +21,7 @@ class SIMULATION:
             time.sleep(1/60)
             p.stepSimulation()
             ROBOT.Sense()
-        """ backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-            frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
-
+        """ 
             pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_BackLeg", 
     controlMode = p.POSITION_CONTROL, targetPosition = targetAnglesF[i], maxForce = 500)
 
