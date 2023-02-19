@@ -20,6 +20,7 @@ class SIMULATION:
             print(i)
             time.sleep(1/60)
             p.stepSimulation()
+            ROBOT.Sense()
         """ backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
             frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
 

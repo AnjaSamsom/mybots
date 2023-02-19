@@ -17,3 +17,6 @@ class ROBOT:
         self.sensors = {}
         for linkName in pyrosim.linkNamesToIndices:
             self.sensors[linkName] = SENSOR(linkName)
+
+    def Sense():
+        pass
