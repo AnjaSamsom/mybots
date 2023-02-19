@@ -19,5 +19,4 @@ class ROBOT:
             self.sensors[linkName] = SENSOR(linkName)
 
     def Sense():
-        backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-        frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
+        pass
