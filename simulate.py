@@ -5,7 +5,6 @@ simulation.Run()
 
 """
 
-
 numsArray = 2*c.pi*(numpy.arange(c.runs) / c.runs)
 
 
