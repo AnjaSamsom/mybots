@@ -33,6 +33,6 @@ class ROBOT:
 
     def Act(self, t):
         for i in self.motors:
-            self.motors[i].Set_Value()
+            self.motors[i].Set_Value(self.robotId, t)
 
 

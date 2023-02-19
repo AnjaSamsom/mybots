@@ -5,8 +5,6 @@ simulation.Run()
 
 """
 
-numsArray = 2*c.pi*(numpy.arange(c.runs) / c.runs)
-
 
 
 targetAnglesF = c.amplitudeF*numpy.sin(c.frequencyF * numsArray + c.phaseOffsetF)
