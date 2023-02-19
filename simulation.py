@@ -1,5 +1,8 @@
 from world import WORLD
 from robot import ROBOT
+from sensor import SENSOR
+from motor import MOTOR
+
 import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
@@ -20,7 +23,7 @@ class SIMULATION:
             print(i)
             time.sleep(1/60)
             p.stepSimulation()
-            ROBOT.Sense()
+            self.robot.Sense()
         """ 
             pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = "Torso_BackLeg", 
     controlMode = p.POSITION_CONTROL, targetPosition = targetAnglesF[i], maxForce = 500)
