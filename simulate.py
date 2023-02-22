@@ -2,18 +2,3 @@ from simulation import SIMULATION
 simulation = SIMULATION()
 simulation.Run()
 
-
-"""
-
-
-with open('data/frontLegSensorValues.npy', 'wb') as f:
-    numpy.save(f, frontLegSensorValues)
-
-with open('data/backLegSensorValues.npy', 'wb') as f:
-    numpy.save(f, backLegSensorValues)
-
-with open('data/arrayDataF.npy', 'wb') as f:
-    numpy.save(f, targetAnglesF)
-
-with open('data/arrayDataB.npy', 'wb') as f:
-    numpy.save(f, targetAnglesB) """

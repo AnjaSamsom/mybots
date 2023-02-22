@@ -15,6 +15,9 @@ class MOTOR:
         self.frequency = c.frequency
         self.offset = c.offset
 
+        if("Front" in str(self.jointName)):
+            self.frequency = self.frequency/2
+
         self.numsArray = 2*c.pi*(numpy.arange(c.runs) / c.runs)
 
 
