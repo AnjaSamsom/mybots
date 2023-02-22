@@ -20,10 +20,10 @@ class SIMULATION:
 
     def Run(self):
         for t in range(c.runs):
-            print(t)
             time.sleep(1/60)
             p.stepSimulation()
             self.robot.Sense(t)
+            self.robot.Think()
             self.robot.Act(t)
         self.MOTOR.Save_Values()
 
