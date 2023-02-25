@@ -161,6 +161,10 @@ def Set_Motor_For_Joint(bodyIndex,jointName,controlMode,targetPosition,maxForce)
 
         jointIndex     = jointNamesToIndices[jointName],
 
+        # this is another option for line 162
+        # jointIndex = jointNamesToIndices[jointName.encode('ASCII')]
+
+
         controlMode    = controlMode,
 
         targetPosition = targetPosition,
