@@ -71,8 +71,9 @@ class NEURON:
         print(self.Get_Name())
         for key in synapses.keys():
             if key[1] == self.Get_Name():
-                print("presynaptic neuron")
-                print("postsynaptic neuron")
+                pass
+                #print("presynaptic neuron: " + key[0])
+                #print("postsynaptic neuron: " + key[1])
  
 
     def Set_Value(self,value):
