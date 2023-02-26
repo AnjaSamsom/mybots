@@ -77,7 +77,7 @@ class NEURON:
                 pre_synaptic_neuron_value = neurons[key[0]].Get_Value()
 
                 self.Allow_Presynaptic_Neuron_To_Influence_Me(current_synapse_weight, pre_synaptic_neuron_value)
-
+        self.Threshold()
         print("after loop: "+ str(self.Get_Value()))
         
 
