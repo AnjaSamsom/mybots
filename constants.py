@@ -15,3 +15,6 @@ phaseOffsetF = 0
 amplitudeB = pi/4
 frequencyB = 6
 phaseOffsetB = pi/4
+
+
+maxforce = 25
