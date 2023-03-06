@@ -17,3 +17,5 @@ frequencyB = 6
 phaseOffsetB = pi/4
 
 maxforce = 25
+
+numberOfGenerations = 2
