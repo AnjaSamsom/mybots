@@ -2,6 +2,7 @@ from hillclimber import HILLCLIMBER
 import os
 
 hc = HILLCLIMBER()
+hc.Evolve()
 
 """
 for i in range(5):
