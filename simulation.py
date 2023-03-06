@@ -25,7 +25,6 @@ class SIMULATION:
             self.robot.Sense(t)
             self.robot.Think()
             self.robot.Act(t)
-        self.MOTOR.Save_Values()
 
 
     def __del__(self):
