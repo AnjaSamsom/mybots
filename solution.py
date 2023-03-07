@@ -4,15 +4,23 @@ import random
 import os
 
 class SOLUTION:
-    def __init__(self):
+    def __init__(self, nextAvailableID):
+        self.myID = nextAvailableID
         self.weights = numpy.random.rand(3,2)
         self.weights = self.weights * 2 - 1
+
+
+    def Set_ID(self, nextAvailableID):
+        self.myID = nextAvailableID
+        nextAvailableID += 1
 
     def Evaluate(self, mode):
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        os.system("python simulate.py "+ mode)
+        os.system("start /B python simulate.py " + mode )
+
+
 
         f = open("fitness.txt", "r")
         self.fitness = float(f.read())

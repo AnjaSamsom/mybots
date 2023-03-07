@@ -1,5 +1,5 @@
-from hillclimber import HILLCLIMBER
+from parallel_hillclimber import PARALLEL_HILLCLIMBER
 import os
 
-hc = HILLCLIMBER()
-hc.Evolve()
+phc = PARALLEL_HILLCLIMBER()
+phc.Evolve()
