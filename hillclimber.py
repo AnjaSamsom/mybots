@@ -44,5 +44,5 @@ class HILLCLIMBER:
 
     def Select(self):
         # if the child does better, set the new parent to the child
-        if self.child.fitness > self.parent.fitness:
+        if self.child.fitness < self.parent.fitness:
             self.parent = self.child
