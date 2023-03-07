@@ -1,5 +1,7 @@
+import copy
 from solution import SOLUTION
 import constants as c
+import random
 
 class HILLCLIMBER:
     def __init__(self):
@@ -19,10 +21,15 @@ class HILLCLIMBER:
             self.Evolve_For_One_Generation()
 
     def Spawn(self):
-        pass
+        self.child = copy.deepcopy(self.parent)
 
     def Mutate(self):
-        pass
+        self.child.Mutate()
+        print(self.parent.weights)
+        print(self.child.weights)
+        exit()
+
+
     
     def Select(self):
         pass

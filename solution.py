@@ -18,6 +18,11 @@ class SOLUTION:
         self.fitness = float(f.read())
         f.close()
 
+    def Mutate(self):
+        row = random.randint(0,3)
+        column = random.randint(0,3)
+        self.weights[row,column] = random.random() * 2 - 1
+
 
 
     def Create_World(self):
