@@ -14,6 +14,7 @@ class SIMULATION:
     def __init__(self, direct_or_GUI):
         if direct_or_GUI == "GUI":
             self.physicsClient = p.connect(p.GUI)
+            c.sleep = 1/1000
         elif direct_or_GUI == "DIRECT":
             self.physicsClient = p.connect(p.DIRECT)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
