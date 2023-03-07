@@ -91,7 +91,7 @@ class NEURAL_NETWORK:
         print("sensor neuron values: " , end = "" )
 
         for neuronName in sorted(self.neurons):
-
+            
             if self.neurons[neuronName].Is_Sensor_Neuron():
 
                 self.neurons[neuronName].Print()

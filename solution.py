@@ -8,19 +8,19 @@ class SOLUTION:
         self.weights = numpy.random.rand(3,2)
         self.weights = self.weights * 2 - 1
 
-    def Evaluate(self):
+    def Evaluate(self, mode):
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        os.system("python simulate.py")
+        os.system("python simulate.py "+ mode)
 
         f = open("fitness.txt", "r")
         self.fitness = float(f.read())
         f.close()
 
     def Mutate(self):
-        row = random.randint(0,3)
-        column = random.randint(0,3)
+        row = random.randint(0,2)
+        column = random.randint(0,1)
         self.weights[row,column] = random.random() * 2 - 1
 
 
