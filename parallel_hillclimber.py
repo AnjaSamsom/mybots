@@ -15,7 +15,7 @@ class PARALLEL_HILLCLIMBER:
     def Evolve_For_One_Generation(self):
         self.Spawn()
         self.Mutate()
-        self.child.Evaluate("DIRECT")
+        self.child.Start_Simulation("DIRECT")
         print()
         self.Print()
         print()
@@ -32,7 +32,7 @@ class PARALLEL_HILLCLIMBER:
 
     def Evolve(self):
         for value in self.parents.items():
-            value[1].Evaluate("GUI")
+            value[1].Start_Simulation("GUI")
             #self.Show_Best()
 
         #for currentGeneration in range(c.numberOfGenerations):

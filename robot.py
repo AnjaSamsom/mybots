@@ -16,8 +16,9 @@ class ROBOT:
         pyrosim.Prepare_To_Simulate(self.robotId)
         ROBOT.Prepare_To_Sense(self)
         ROBOT.Prepare_To_Act(self)
+        self.ID = SolutionID
         self.nn = NEURAL_NETWORK("brain" + str(SolutionID) + ".nndf")
-        os.system("del brain" + SolutionID + ".nndf")
+        #os.system("del brain" + str(SolutionID) + ".nndf")
 
 
     def Prepare_To_Sense(self):
@@ -54,11 +55,8 @@ class ROBOT:
         self.positionOfLinkZero = self.stateOfLinkZero[0]
         self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
 
-        f = open("fitness.txt", "w")
+        f = open("tmp" + str(self.ID) + ".txt", "w")
         f.write(str(self.xCoordinateOfLinkZero))
+        os.system("rename tmp" + str(self.ID) + ".txt fitness" + str(self.ID) +".txt")
         f.close()
         exit()
-
-
-
-

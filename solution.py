@@ -2,6 +2,7 @@ import pyrosim.pyrosim as pyrosim
 import numpy
 import random
 import os
+import time
 
 class SOLUTION:
     def __init__(self, nextAvailableID):
@@ -14,17 +15,25 @@ class SOLUTION:
         self.myID = nextAvailableID
         nextAvailableID += 1
 
-    def Evaluate(self, mode):
+
+
+    def Start_Simulation(self, mode):
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
         os.system("start /B python simulate.py " + mode + " " + str(self.myID))
 
+    def Wait_For_Simulation_To_End(self):
+        fitnessFileName = "fitness" + str(self.myID) + ".txt"
+        while not os.path.exists(fitnessFileName):
+            time.sleep(0.01)
 
-
-        f = open("fitness.txt", "r")
+        f = open(fitnessFileName, "r")
         self.fitness = float(f.read())
+        print("fit id")
+        print(self.fitness)
         f.close()
+        os.system("del " + fitnessFileName)
 
     def Mutate(self):
         row = random.randint(0,2)
@@ -65,4 +74,3 @@ class SOLUTION:
                     pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn+3 , weight = self.weights[currentRow][currentColumn])
 
         pyrosim.End()  
-
