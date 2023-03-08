@@ -1,7 +1,7 @@
 import numpy
 
 pi = numpy.pi
-runs = 100
+runs = 500
 
 
 amplitude = pi/4
@@ -22,4 +22,4 @@ numberOfGenerations = 20
 
 sleep = 0
 
-populationSize = 2
+populationSize = 10

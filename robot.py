@@ -18,7 +18,7 @@ class ROBOT:
         ROBOT.Prepare_To_Act(self)
         self.ID = SolutionID
         self.nn = NEURAL_NETWORK("brain" + str(SolutionID) + ".nndf")
-        #os.system("del brain" + str(SolutionID) + ".nndf")
+        os.system("del brain" + str(SolutionID) + ".nndf")
 
 
     def Prepare_To_Sense(self):
@@ -57,6 +57,8 @@ class ROBOT:
 
         f = open("tmp" + str(self.ID) + ".txt", "w")
         f.write(str(self.xCoordinateOfLinkZero))
-        os.system("rename tmp" + str(self.ID) + ".txt fitness" + str(self.ID) +".txt")
         f.close()
+
+        os.system("rename tmp" + str(self.ID) + ".txt fitness" + str(self.ID) +".txt")
+
         exit()
