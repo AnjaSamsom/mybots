@@ -11,7 +11,7 @@ import constants as c
 
 class SIMULATION:
 
-    def __init__(self, direct_or_GUI):
+    def __init__(self, direct_or_GUI, SolutionID):
         if direct_or_GUI == "GUI":
             self.physicsClient = p.connect(p.GUI)
             c.sleep = 1/1000
@@ -20,7 +20,7 @@ class SIMULATION:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)  
         self.world = WORLD()
-        self.robot = ROBOT()
+        self.robot = ROBOT(SolutionID)
 
     def Run(self):
         for t in range(c.runs):

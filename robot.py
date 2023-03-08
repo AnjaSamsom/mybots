@@ -6,16 +6,18 @@ from motor import MOTOR
 import constants as c
 import numpy
 from pyrosim.neuralNetwork import NEURAL_NETWORK
+import os
 
 
 class ROBOT:
 
-    def __init__(self):
+    def __init__(self, SolutionID):
         self.robotId = p.loadURDF("robot.urdf")
         pyrosim.Prepare_To_Simulate(self.robotId)
         ROBOT.Prepare_To_Sense(self)
         ROBOT.Prepare_To_Act(self)
-        self.nn = NEURAL_NETWORK("brain.nndf")
+        self.nn = NEURAL_NETWORK("brain" + str(SolutionID) + ".nndf")
+        os.system("del brain" + SolutionID + ".nndf")
 
 
     def Prepare_To_Sense(self):
