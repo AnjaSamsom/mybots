@@ -48,18 +48,18 @@ class PARALLEL_HILLCLIMBER:
 
 
     def Spawn(self):
-        self.children = self.parents.copy()
+        self.children = {}
         print(self.parents)
 
+        for key in self.parents.keys():
+            print(key)
+            unit = copy.deepcopy(self.parents.get(key))
+            print(unit)
+            print(self.nextAvailableID)
+            unit.Set_ID(self.nextAvailableID)
+
+            self.children.update(key  = unit)
         print(self.children)
-
-        
-
-        # print(self.children)
-
-
-
-        # print(self.children)
         exit()
 
     def Mutate(self):
