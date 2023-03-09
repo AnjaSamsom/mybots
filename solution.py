@@ -30,8 +30,6 @@ class SOLUTION:
 
         f = open(fitnessFileName, "r")
         self.fitness = float(f.read())
-        print("fit id")
-        print(self.fitness)
         f.close()
         os.system("del " + fitnessFileName)
 

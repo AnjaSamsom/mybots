@@ -22,4 +22,4 @@ numberOfGenerations = 20
 
 sleep = 0
 
-populationSize = 10
+populationSize = 2

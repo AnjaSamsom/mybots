@@ -13,14 +13,17 @@ class PARALLEL_HILLCLIMBER:
         
 
     def Evolve_For_One_Generation(self):
+        
         self.Spawn()
-        self.Mutate()
-        self.child.Start_Simulation("DIRECT")
-        print()
-        self.Print()
-        print()
+        # self.Mutate()
+        # self.child.Start_Simulation("DIRECT")
+        # print()
+        # self.Print()
+        # print()
 
-        self.Select()
+        # self.Select()
+        
+        
 
     def Print(self):
         print(str(self.parent.fitness) + " " + str(self.child.fitness))
@@ -38,14 +41,26 @@ class PARALLEL_HILLCLIMBER:
         for value in self.parents.items():
             value[1].Wait_For_Simulation_To_End()
 
-        #for currentGeneration in range(c.numberOfGenerations):
-            #self.Evolve_For_One_Generation()
+        for currentGeneration in range(c.numberOfGenerations):
+            self.Evolve_For_One_Generation()
 
         #self.Show_Best()
 
 
     def Spawn(self):
-        self.child = copy.deepcopy(self.parent)
+        self.children = self.parents.copy()
+        print(self.parents)
+
+        print(self.children)
+
+        
+
+        # print(self.children)
+
+
+
+        # print(self.children)
+        exit()
 
     def Mutate(self):
         self.child.Mutate()
