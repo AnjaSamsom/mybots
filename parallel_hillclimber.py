@@ -26,7 +26,9 @@ class PARALLEL_HILLCLIMBER:
         self.Evaluate(self.children)
         self.Print()
 
-        # self.Select()
+        self.Select()
+
+        self.Show_Best()
         
         
 
@@ -37,7 +39,13 @@ class PARALLEL_HILLCLIMBER:
         print()
 
     def Show_Best(self):
-        self.parent.Evaluate("GUI")
+        minimum = self.parents[0]
+        for key in self.parents.keys():
+            unit = self.parents[key]
+            if unit.fitness < minimum.fitness:
+                minimum = unit
+
+        minimum.Start_Simulation("GUI")
 
 
 
@@ -65,8 +73,9 @@ class PARALLEL_HILLCLIMBER:
 
     def Select(self):
         # if the child does better, set the new parent to the child
-        if self.child.fitness < self.parent.fitness:
-            self.parent = self.child
+        for unit in self.parents:
+            if self.children[unit].fitness < self.parents[unit].fitness:
+                self.parents[unit] = self.children[unit]
 
     def Evaluate(self, solutions):
         for value in solutions.items():
