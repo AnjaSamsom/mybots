@@ -62,7 +62,6 @@ class PARALLEL_HILLCLIMBER:
 
     def Mutate(self):
         for key in self.children.keys():
-
             self.children[key].Mutate()
 
 
