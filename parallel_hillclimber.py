@@ -6,15 +6,23 @@ import random
 class PARALLEL_HILLCLIMBER:
     def __init__(self):
         self.parents = {}
+
         self.nextAvailableID = 0
+
         for i in range(c.populationSize):
+            print(self.nextAvailableID)
+
             self.parents[i] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID  += 1
+
+
+
         
 
     def Evolve_For_One_Generation(self):
         
         self.Spawn()
+
         # self.Mutate()
         # self.child.Start_Simulation("DIRECT")
         # print()
@@ -49,17 +57,13 @@ class PARALLEL_HILLCLIMBER:
 
     def Spawn(self):
         self.children = {}
-        print(self.parents)
 
         for key in self.parents.keys():
-            print(key)
-            unit = copy.deepcopy(self.parents.get(key))
-            print(unit)
-            print(self.nextAvailableID)
-            unit.Set_ID(self.nextAvailableID)
+            unit = copy.deepcopy(self.parents[key])
+            self.nextAvailableID += 1
+            self.children[key] = unit
 
-            self.children.update(key  = unit)
-        print(self.children)
+
         exit()
 
     def Mutate(self):
