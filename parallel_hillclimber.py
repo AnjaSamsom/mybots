@@ -24,19 +24,17 @@ class PARALLEL_HILLCLIMBER:
         self.Spawn()
         self.Mutate()
         self.Evaluate(self.children)
-        exit()
-
-        # self.child.Start_Simulation("DIRECT")
-        # print()
-        # self.Print()
-        # print()
+        self.Print()
 
         # self.Select()
         
         
 
     def Print(self):
-        print(str(self.parent.fitness) + " " + str(self.child.fitness))
+        print()
+        for key in self.parents.keys():
+            print(str(self.parents[key].fitness) + " " + str(self.children[key].fitness))
+        print()
 
     def Show_Best(self):
         self.parent.Evaluate("GUI")
@@ -72,7 +70,7 @@ class PARALLEL_HILLCLIMBER:
 
     def Evaluate(self, solutions):
         for value in solutions.items():
-            value[1].Start_Simulation("GUI")
+            value[1].Start_Simulation("DIRECT")
 
         for value in solutions.items():
             value[1].Wait_For_Simulation_To_End()
