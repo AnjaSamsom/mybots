@@ -9,6 +9,7 @@ class SOLUTION:
         self.myID = nextAvailableID
         self.weights = numpy.random.rand(3,2)
         self.weights = self.weights * 2 - 1
+        self.fitness = 0
 
 
     def Set_ID(self, nextAvailableID):

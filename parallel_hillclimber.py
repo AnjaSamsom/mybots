@@ -2,9 +2,14 @@ import copy
 from solution import SOLUTION
 import constants as c
 import random
+import os
 
 class PARALLEL_HILLCLIMBER:
     def __init__(self):
+
+        os.system("del brain*.nndf")
+        os.system("del fitness*.nndf")
+
         self.parents = {}
 
         self.nextAvailableID = 0
@@ -25,10 +30,7 @@ class PARALLEL_HILLCLIMBER:
         self.Mutate()
         self.Evaluate(self.children)
         self.Print()
-
         self.Select()
-
-        self.Show_Best()
         
         
 
@@ -45,7 +47,21 @@ class PARALLEL_HILLCLIMBER:
             if unit.fitness < minimum.fitness:
                 minimum = unit
 
+
+        print()
+        print()
+        print("here we are looking to make sure everything is okay")
+        print("parents")
+        for key in self.parents.keys():
+            print(self.parents[key].fitness)
+
+        print()
+        print("best solution")
+        print(minimum.fitness)
+
         minimum.Start_Simulation("GUI")
+
+  
 
 
 
@@ -54,7 +70,7 @@ class PARALLEL_HILLCLIMBER:
         for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
 
-        #self.Show_Best()
+        self.Show_Best()
 
 
     def Spawn(self):
@@ -78,8 +94,8 @@ class PARALLEL_HILLCLIMBER:
                 self.parents[unit] = self.children[unit]
 
     def Evaluate(self, solutions):
-        for value in solutions.items():
-            value[1].Start_Simulation("DIRECT")
+        for key in solutions.keys():
+            solutions[key].Start_Simulation("DIRECT")
 
-        for value in solutions.items():
-            value[1].Wait_For_Simulation_To_End()
+        for key in solutions.keys():
+            solutions[key].Wait_For_Simulation_To_End()
