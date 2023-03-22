@@ -18,8 +18,11 @@ phaseOffsetB = pi/4
 
 maxforce = 25
 
-numberOfGenerations = 10
+numberOfGenerations = 1
 
 sleep = 0
 
-populationSize = 10
+populationSize = 1
+
+numSensorNeurons = 3
+numMotorNeurons = 2
