@@ -24,5 +24,5 @@ sleep = 0
 
 populationSize = 1
 
-numSensorNeurons = 4
-numMotorNeurons = 3
+numSensorNeurons = 10
+numMotorNeurons = 8
