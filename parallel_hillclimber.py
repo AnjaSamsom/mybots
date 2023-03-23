@@ -15,8 +15,6 @@ class PARALLEL_HILLCLIMBER:
         self.nextAvailableID = 0
 
         for i in range(c.populationSize):
-            print(self.nextAvailableID)
-
             self.parents[i] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID  += 1
 
@@ -47,18 +45,6 @@ class PARALLEL_HILLCLIMBER:
             if unit.fitness < minimum.fitness:
                 minimum = unit
 
-
-        print()
-        print()
-        print("here we are looking to make sure everything is okay")
-        print("parents")
-        for key in self.parents.keys():
-            print(self.parents[key].fitness)
-
-        print()
-        print("best solution")
-        print(minimum.fitness)
-
         minimum.Start_Simulation("GUI")
 
   
@@ -70,7 +56,7 @@ class PARALLEL_HILLCLIMBER:
         for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
 
-        self.Show_Best()
+
 
 
     def Spawn(self):
