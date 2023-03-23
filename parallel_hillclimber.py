@@ -18,10 +18,6 @@ class PARALLEL_HILLCLIMBER:
             self.parents[i] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID  += 1
 
-
-
-        
-
     def Evolve_For_One_Generation(self):
         
         self.Spawn()
@@ -31,7 +27,6 @@ class PARALLEL_HILLCLIMBER:
         self.Select()
         
         
-
     def Print(self):
         print()
         for key in self.parents.keys():
@@ -46,9 +41,7 @@ class PARALLEL_HILLCLIMBER:
                 minimum = unit
 
         minimum.Start_Simulation("GUI")
-
-  
-
+        print("the best fitness value is: " + str(minimum.fitness))
 
 
     def Evolve(self):
