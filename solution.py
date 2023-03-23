@@ -99,7 +99,6 @@ class SOLUTION:
         pyrosim.Send_Motor_Neuron( name = 12 , jointName = "RightLeg_RightLowerLeg") 
         
 
-
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):
                     pyrosim.Send_Synapse(sourceNeuronName = currentRow , targetNeuronName = currentColumn+c.numSensorNeurons , weight = self.weights[currentRow][currentColumn])

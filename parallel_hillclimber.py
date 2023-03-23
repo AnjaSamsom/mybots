@@ -56,9 +56,6 @@ class PARALLEL_HILLCLIMBER:
         for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
 
-
-
-
     def Spawn(self):
         self.children = {}
 
