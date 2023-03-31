@@ -59,6 +59,6 @@ class ROBOT:
 
         os.system("rename tmp" + str(self.ID) + ".txt fitness" + str(self.ID) +".txt")
 
-        # print(self.position)
+        print(self.position)
 
         exit()
