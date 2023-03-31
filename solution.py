@@ -8,7 +8,7 @@ import constants as c
 class SOLUTION:
     def __init__(self, nextAvailableID):
         self.myID = nextAvailableID
-        self.weights = numpy.random.rand(c.numSensorNeurons, c.numMotorNeurons)
+        self.weights = 2 * numpy.random.rand(c.numSensorNeurons, c.numMotorNeurons) -1
         self.weights = self.weights * c.numMotorNeurons - 1
         self.fitness = 0
 
@@ -39,7 +39,7 @@ class SOLUTION:
         row = random.randint(0,c.numSensorNeurons-1)
         column = random.randint(0,c.numMotorNeurons-1)
 
-        self.weights[row,column] = random.random() * c.numMotorNeurons - 1
+        self.weights[row,column] = 2* (random.random() * c.numMotorNeurons - 1) -1
 
 
 
