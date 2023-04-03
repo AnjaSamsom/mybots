@@ -13,11 +13,14 @@ class ROBOT:
 
     def __init__(self, SolutionID, name):
         self.robotId = p.loadURDF("robot" + name + ".urdf")
+
         pyrosim.Prepare_To_Simulate(self.robotId)
         ROBOT.Prepare_To_Sense(self)
         ROBOT.Prepare_To_Act(self)
+
         self.ID = SolutionID
         self.nn = NEURAL_NETWORK("brain" + name + str(SolutionID) + ".nndf")
+
         os.system("del brain" + str(SolutionID) + ".nndf")
 
 

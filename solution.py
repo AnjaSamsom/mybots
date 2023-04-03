@@ -19,9 +19,7 @@ class SOLUTION:
 
     def Start_Simulation(self, mode):
         self.Create_World()
-        self.two("a")
-        self.two("b")
-
+        self.two()
         os.system("start /B python simulate.py " + mode + " " + str(self.myID))
 
 
@@ -51,19 +49,19 @@ class SOLUTION:
         pyrosim.End()
 
 
-    def four(self, name):
-        self.Create_Body_Quad(name)
+    def four(self):
+        self.Create_Body_Quad()
         self.Create_Brain_Quad()
 
 
-    def two(self, name):
-        self.Create_Body_Bi(name)
-        self.Create_Brain_Bi(name)
+    def two(self):
+        self.Create_Body_Bi()
+        self.Create_Brain_Bi()
 
 
 
-    def Create_Body_Bi(self, name):
-        pyrosim.Start_URDF("robot" + name +".urdf")
+    def Create_Body_Bi(self):
+        pyrosim.Start_URDF("robotA.urdf")
         x = random.randint(-10, 10)
         y = random.randint(-10, 10)
 
@@ -73,6 +71,10 @@ class SOLUTION:
         pyrosim.Send_Joint( name = "Torso_BackLeg" , parent= "Torso" , child = "BackLeg" , type = "revolute", position = [x-0.5,y,1], jointAxis = "0 1 0")
         pyrosim.Send_Cube(name="BackLeg", pos=[-0.5,0,-0.5], size=[1,1,1])
 
+        pyrosim.End()
+
+
+        pyrosim.Start_URDF("robotB.urdf")
 
         x = random.randint(-10, 10)
         y = random.randint(-10, 10)
@@ -84,31 +86,31 @@ class SOLUTION:
         pyrosim.Send_Cube(name="BackLeg", pos=[-0.5,0,-0.5], size=[1,1,1])
         pyrosim.End()
 
-    def Create_Brain_Bi(self, name):
-        pyrosim.Start_NeuralNetwork("brain" + "a" + str(self.myID) + ".nndf")
+    def Create_Brain_Bi(self):
+        pyrosim.Start_NeuralNetwork("brainA" + str(self.myID) + ".nndf")
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
         pyrosim.Send_Sensor_Neuron(name = 1 , linkName = "BackLeg")
         pyrosim.Send_Sensor_Neuron(name = 2 , linkName = "FrontLeg")
         pyrosim.Send_Motor_Neuron( name = 3 , jointName = "Torso_BackLeg")
         pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_FrontLeg")
 
-        for currentRow in range(c.numSensorNeurons):
-            for currentColumn in range(c.numMotorNeurons):
+        for currentRow in range(int(c.numSensorNeurons/2)):
+            for currentColumn in range(int(c.numMotorNeurons/2)):
                     pyrosim.Send_Synapse(sourceNeuronName = currentRow , targetNeuronName = currentColumn+c.numSensorNeurons , weight = self.weights[currentRow][currentColumn])
         
-        pyrosim.Start_NeuralNetwork("brain" + "b" + str(self.myID) + ".nndf")
+        pyrosim.End()
+
+        pyrosim.Start_NeuralNetwork("brainB" + str(self.myID) + ".nndf")
+
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
-        pyrosim.Send_Sensor_Neuron(name = 1 , linkName = "BackLeg")
+        pyrosim.Send_Sensor_Neuron(name = 1, linkName = "BackLeg")
         pyrosim.Send_Sensor_Neuron(name = 2 , linkName = "FrontLeg")
         pyrosim.Send_Motor_Neuron( name = 3 , jointName = "Torso_BackLeg")
         pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_FrontLeg")
 
-
-
-        for currentRow in range(c.numSensorNeurons):
-            for currentColumn in range(c.numMotorNeurons):
+        for currentRow in range(int(c.numSensorNeurons/2), c.numSensorNeurons):
+            for currentColumn in range(c.numMotorNeurons, int(c.numMotorNeurons/2)):
                     pyrosim.Send_Synapse(sourceNeuronName = currentRow , targetNeuronName = currentColumn+c.numSensorNeurons , weight = self.weights[currentRow][currentColumn])
-
 
         pyrosim.End()
 
