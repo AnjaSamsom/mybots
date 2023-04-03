@@ -11,8 +11,8 @@ import os
 
 class ROBOT:
 
-    def __init__(self, SolutionID):
-        self.robotId = p.loadURDF("robot.urdf")
+    def __init__(self, SolutionID, name):
+        self.robotId = p.loadURDF("robot" + name + ".urdf")
         pyrosim.Prepare_To_Simulate(self.robotId)
         ROBOT.Prepare_To_Sense(self)
         ROBOT.Prepare_To_Act(self)
@@ -53,12 +53,11 @@ class ROBOT:
         self.basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         self.basePosition = self.basePositionAndOrientation[0]
         self.xPosition = self.basePosition[0]
+
         f = open("tmp" + str(self.ID) + ".txt", "w")
         f.write(str(self.xPosition))
+        
         f.close()
 
         os.system("rename tmp" + str(self.ID) + ".txt fitness" + str(self.ID) +".txt")
-
-        print(self.position)
-
         exit()

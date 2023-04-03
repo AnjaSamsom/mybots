@@ -1,7 +1,8 @@
 import numpy
+import random
 
 pi = numpy.pi
-runs = 1000
+runs = 2000
 
 
 amplitude = pi/4
@@ -16,14 +17,14 @@ amplitudeB = pi/4
 frequencyB = 6
 phaseOffsetB = pi/4
 
-maxforce = 50
+maxforce = 25
 
 sleep = 0
 
 numberOfGenerations = 5
 populationSize = 5
 
-numSensorNeurons = 5
-numMotorNeurons = 8
+numSensorNeurons = 3
+numMotorNeurons = 2
 
 motorJointRange = 0.2
