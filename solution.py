@@ -21,7 +21,7 @@ class SOLUTION:
 
     def Start_Simulation(self, mode):
         self.Create_World()
-        self.two()
+        self.start()
 
 
         os.system("start /B python simulate.py " + mode + " " + str(self.myID))
@@ -60,6 +60,17 @@ class SOLUTION:
     def two(self):
         self.Create_Body_Bi()
         self.Create_Brain_Bi()
+
+    def start(self):
+        pyrosim.Start_URDF("robot.urdf")
+        x = random.randint(-10, 10)
+        y = random.randint(-10, 10)
+        pyrosim.Send_Cube(name="Torso", pos=[x,y,1.5], size=[1,1,1])
+        pyrosim.End()
+
+
+
+
 
 
 
