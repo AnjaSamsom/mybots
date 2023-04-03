@@ -21,7 +21,7 @@ class SOLUTION:
 
     def Start_Simulation(self, mode):
         self.Create_World()
-        self.two("a")
+        self.two()
 
 
         os.system("start /B python simulate.py " + mode + " " + str(self.myID))
@@ -52,19 +52,19 @@ class SOLUTION:
         pyrosim.End()
 
 
-    def four(self, name):
-        self.Create_Body_Quad(name)
+    def four(self):
+        self.Create_Body_Quad()
         self.Create_Brain_Quad()
 
 
-    def two(self, name):
-        self.Create_Body_Bi(name)
+    def two(self):
+        self.Create_Body_Bi()
         self.Create_Brain_Bi()
 
 
 
-    def Create_Body_Bi(self, name):
-        pyrosim.Start_URDF("robot" + name +".urdf")
+    def Create_Body_Bi(self):
+        pyrosim.Start_URDF("robot.urdf")
         x = random.randint(-10, 10)
         y = random.randint(-10, 10)
 
@@ -92,8 +92,8 @@ class SOLUTION:
         pyrosim.End()
 
     
-    def Create_Body_Quad(self, name):
-        pyrosim.Start_URDF("robot" + name +".urdf")
+    def Create_Body_Quad(self):
+        pyrosim.Start_URDF("robot.urdf")
 
         x = random.randint(-10, 10)
         y = random.randint(-10, 10)
