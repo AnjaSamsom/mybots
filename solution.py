@@ -62,10 +62,16 @@ class SOLUTION:
         self.Create_Brain_Bi()
 
     def start(self):
-        pyrosim.Start_URDF("robot.urdf")
+        pyrosim.Start_URDF("robot_A.urdf")
         x = random.randint(-10, 10)
         y = random.randint(-10, 10)
-        pyrosim.Send_Cube(name="Torso", pos=[x,y,1.5], size=[1,1,1])
+        pyrosim.Send_Cube(name="Torso_A", pos=[x,y,1.5], size=[1,1,1])
+        pyrosim.End()
+
+        pyrosim.Start_URDF("robot_B.urdf")
+        x = random.randint(-10, 10)
+        y = random.randint(-10, 10)
+        pyrosim.Send_Cube(name="Torso_B", pos=[x,y,1.5], size=[1,1,1])
         pyrosim.End()
 
 
