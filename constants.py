@@ -1,5 +1,4 @@
 import numpy
-import random
 
 pi = numpy.pi
 runs = 2000

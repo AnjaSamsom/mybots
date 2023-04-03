@@ -24,6 +24,8 @@ class SIMULATION:
         self.robots = []
         for name in name_list:
             self.robots.append(ROBOT(SolutionID, name))
+
+        print(self.robots)
         
 
     def Run(self):
