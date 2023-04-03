@@ -33,10 +33,9 @@ class SIMULATION:
             time.sleep(c.sleep)
             p.stepSimulation()
             for robot in self.robots:
-                #robot.Sense(t)
-                #robot.Think()
-                #robot.Act(t)
-                pass
+                robot.Sense(t)
+                robot.Think()
+                robot.Act(t)
 
 
     def __del__(self):
