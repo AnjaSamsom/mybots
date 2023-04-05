@@ -24,8 +24,6 @@ class SIMULATION:
         self.robots = []
         for name in name_list:
             self.robots.append(ROBOT(SolutionID, name))
-
-        print(self.robots)
         
 
     def Run(self):
@@ -42,6 +40,7 @@ class SIMULATION:
         p.disconnect()
 
     def Get_Fitness(self):
-        self.robot.Get_Fitness()
+        for robot in self.robots:
+            robot.Get_Fitness()
 
 

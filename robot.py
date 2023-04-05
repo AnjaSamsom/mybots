@@ -55,6 +55,8 @@ class ROBOT:
         self.basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         self.basePosition = self.basePositionAndOrientation[0]
         self.xPosition = self.basePosition[0]
+        self.yPosition = self.basePosition[1]
+
 
         f = open("tmp" + str(self.ID) + ".txt", "w")
         f.write(str(self.xPosition))

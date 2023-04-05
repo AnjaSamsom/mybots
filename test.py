@@ -1,7 +1,9 @@
 from simulation import SIMULATION
 from solution import SOLUTION
 
-solution = SOLUTION(0)
-solution.start()
-simulation = SIMULATION("GUI", 0)
+sol_id = 2
+
+solution = SOLUTION(sol_id)
+solution.Start_Simulation("GUI")
+simulation = SIMULATION("GUI", sol_id)
 simulation.Run()
