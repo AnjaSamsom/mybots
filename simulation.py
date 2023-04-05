@@ -43,4 +43,3 @@ class SIMULATION:
         for robot in self.robots:
             robot.Get_Fitness()
 
-
