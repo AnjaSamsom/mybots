@@ -1,20 +1,12 @@
 <robot name = "robot">
     <link name="Torso">
         <inertial>
-<<<<<<< HEAD:robot_B.urdf
-            <origin xyz="2 -4 1.5" rpy="0 0 0"/>
-=======
-            <origin xyz="10 3 1.5" rpy="0 0 0"/>
->>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce:robotb.urdf
+            <origin xyz="-2 -3 1.5" rpy="0 0 0"/>
             <mass value="1" />
             <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
         </inertial>
         <visual>
-<<<<<<< HEAD:robot_B.urdf
-            <origin xyz="2 -4 1.5" rpy="0 0 0"/>
-=======
-            <origin xyz="10 3 1.5" rpy="0 0 0"/>
->>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce:robotb.urdf
+            <origin xyz="-2 -3 1.5" rpy="0 0 0"/>
             <geometry>
                 <box size="1 1 1" />
             </geometry>
@@ -23,11 +15,7 @@
             </material>
         </visual>
         <collision>
-<<<<<<< HEAD:robot_B.urdf
-            <origin xyz="2 -4 1.5" rpy="0 0 0"/>
-=======
-            <origin xyz="10 3 1.5" rpy="0 0 0"/>
->>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce:robotb.urdf
+            <origin xyz="-2 -3 1.5" rpy="0 0 0"/>
             <geometry>
                 <box size="1 1 1" />
             </geometry>
@@ -36,11 +24,7 @@
     <joint name="Torso_FrontLeg" type="revolute">
        <parent link="Torso"/>
        <child  link="FrontLeg"/>
-<<<<<<< HEAD:robot_B.urdf
-       <origin rpy="0 0 0" xyz="2.5 -4 1" />
-=======
-       <origin rpy="0 0 0" xyz="10.5 3 1" />
->>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce:robotb.urdf
+       <origin rpy="0 0 0" xyz="-1.5 -3 1" />
      <axis xyz="0 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
@@ -69,11 +53,7 @@
     <joint name="Torso_BackLeg" type="revolute">
        <parent link="Torso"/>
        <child  link="BackLeg"/>
-<<<<<<< HEAD:robot_B.urdf
-       <origin rpy="0 0 0" xyz="1.5 -4 1" />
-=======
-       <origin rpy="0 0 0" xyz="9.5 3 1" />
->>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce:robotb.urdf
+       <origin rpy="0 0 0" xyz="-2.5 -3 1" />
      <axis xyz="0 1 0"/>
        <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
     </joint>
