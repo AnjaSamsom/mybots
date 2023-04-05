@@ -20,20 +20,35 @@ class SIMULATION:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0,0,-9.8)  
         self.world = WORLD()
+<<<<<<< HEAD
         name_list = ["A", "B"]
         self.robots = []
         for name in name_list:
             self.robots.append(ROBOT(SolutionID, name))
+=======
+        self.robotA = ROBOT(SolutionID, "A")
+        self.robotB = ROBOT(SolutionID, "B")
+
+>>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce
         
 
     def Run(self):
         for t in range(c.runs):
             time.sleep(c.sleep)
             p.stepSimulation()
+<<<<<<< HEAD
             for robot in self.robots:
                 robot.Sense(t)
                 robot.Think()
                 robot.Act(t)
+=======
+            self.robotA.Sense(t)
+            self.robotA.Think()
+            self.robotA.Act(t)
+            self.robotB.Sense(t)
+            self.robotB.Think()
+            self.robotB.Act(t)
+>>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce
 
 
     def __del__(self):

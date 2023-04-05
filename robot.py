@@ -12,14 +12,24 @@ import os
 class ROBOT:
 
     def __init__(self, SolutionID, name):
+<<<<<<< HEAD
         self.robotId = p.loadURDF("robot_"+ name + ".urdf")
+=======
+        self.robotId = p.loadURDF("robot" + name + ".urdf")
+>>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce
 
         pyrosim.Prepare_To_Simulate(self.robotId)
 
         ROBOT.Prepare_To_Sense(self)
         ROBOT.Prepare_To_Act(self)
+
         self.ID = SolutionID
+<<<<<<< HEAD
         self.nn = NEURAL_NETWORK("brain_" + name  + str(SolutionID) + ".nndf")
+=======
+        self.nn = NEURAL_NETWORK("brain" + name + str(SolutionID) + ".nndf")
+
+>>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce
         os.system("del brain" + str(SolutionID) + ".nndf")
 
 
