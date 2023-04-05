@@ -5,6 +5,8 @@ import os
 import time
 import constants as c
 
+# hopefully this git thing works...
+
 class SOLUTION:
     def __init__(self, nextAvailableID):
         self.myID = nextAvailableID
@@ -17,14 +19,13 @@ class SOLUTION:
         self.myID = nextAvailableID
         nextAvailableID += 1
 
-
-
     def Start_Simulation(self, mode):
         self.Create_World()
         self.Create_Bodies()
         self.Create_Brains()
 
         os.system("start /B python simulate.py " + mode + " " + str(self.myID))
+
 
     def Wait_For_Simulation_To_End(self):
         fitnessFileName = "fitness" + str(self.myID) + ".txt"
@@ -84,8 +85,8 @@ class SOLUTION:
         pyrosim.Send_Motor_Neuron( name = 3 , jointName = "Torso_BackLeg")
         pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_FrontLeg")
 
-        for currentRow in range(c.numSensorNeurons):
-            for currentColumn in range(c.numMotorNeurons):
+        for currentRow in range(int(c.numSensorNeurons/2), c.numSensorNeurons):
+            for currentColumn in range(c.numMotorNeurons, int(c.numMotorNeurons/2)):
                     pyrosim.Send_Synapse(sourceNeuronName = currentRow , targetNeuronName = currentColumn+c.numSensorNeurons , weight = self.weights[currentRow][currentColumn])
         
         pyrosim.End()
