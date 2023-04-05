@@ -80,3 +80,125 @@
         </collision>
     </link>
 </robot>
+<robot name = "robot">
+    <link name="Torso">
+        <inertial>
+<<<<<<< HEAD
+            <origin xyz="-5 -8 1.5" rpy="0 0 0"/>
+=======
+<<<<<<< HEAD:robot_B.urdf
+            <origin xyz="2 -4 1.5" rpy="0 0 0"/>
+=======
+            <origin xyz="10 3 1.5" rpy="0 0 0"/>
+>>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce:robotb.urdf
+>>>>>>> parent of 38092a7 (merge conflicts)
+            <mass value="1" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+<<<<<<< HEAD
+            <origin xyz="-5 -8 1.5" rpy="0 0 0"/>
+=======
+<<<<<<< HEAD:robot_B.urdf
+            <origin xyz="2 -4 1.5" rpy="0 0 0"/>
+=======
+            <origin xyz="10 3 1.5" rpy="0 0 0"/>
+>>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce:robotb.urdf
+>>>>>>> parent of 38092a7 (merge conflicts)
+            <geometry>
+                <box size="1 1 1" />
+            </geometry>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+<<<<<<< HEAD
+            <origin xyz="-5 -8 1.5" rpy="0 0 0"/>
+=======
+<<<<<<< HEAD:robot_B.urdf
+            <origin xyz="2 -4 1.5" rpy="0 0 0"/>
+=======
+            <origin xyz="10 3 1.5" rpy="0 0 0"/>
+>>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce:robotb.urdf
+>>>>>>> parent of 38092a7 (merge conflicts)
+            <geometry>
+                <box size="1 1 1" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Torso_FrontLeg" type="revolute">
+       <parent link="Torso"/>
+       <child  link="FrontLeg"/>
+<<<<<<< HEAD
+       <origin rpy="0 0 0" xyz="-4.5 -8 1" />
+=======
+<<<<<<< HEAD:robot_B.urdf
+       <origin rpy="0 0 0" xyz="2.5 -4 1" />
+=======
+       <origin rpy="0 0 0" xyz="10.5 3 1" />
+>>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce:robotb.urdf
+>>>>>>> parent of 38092a7 (merge conflicts)
+     <axis xyz="0 1 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="FrontLeg">
+        <inertial>
+            <origin xyz="0.5 0 -0.5" rpy="0 0 0"/>
+            <mass value="1" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="0.5 0 -0.5" rpy="0 0 0"/>
+            <geometry>
+                <box size="1 1 1" />
+            </geometry>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0.5 0 -0.5" rpy="0 0 0"/>
+            <geometry>
+                <box size="1 1 1" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="Torso_BackLeg" type="revolute">
+       <parent link="Torso"/>
+       <child  link="BackLeg"/>
+<<<<<<< HEAD
+       <origin rpy="0 0 0" xyz="-5.5 -8 1" />
+=======
+<<<<<<< HEAD:robot_B.urdf
+       <origin rpy="0 0 0" xyz="1.5 -4 1" />
+=======
+       <origin rpy="0 0 0" xyz="9.5 3 1" />
+>>>>>>> 1186aee1fe9cabde7f6885da0e4e2e1f0d1f50ce:robotb.urdf
+>>>>>>> parent of 38092a7 (merge conflicts)
+     <axis xyz="0 1 0"/>
+       <limit effort="0.0" lower="-3.14159" upper="3.14159" velocity="0.0"/>
+    </joint>
+    <link name="BackLeg">
+        <inertial>
+            <origin xyz="-0.5 0 -0.5" rpy="0 0 0"/>
+            <mass value="1" />
+            <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+        </inertial>
+        <visual>
+            <origin xyz="-0.5 0 -0.5" rpy="0 0 0"/>
+            <geometry>
+                <box size="1 1 1" />
+            </geometry>
+            <material name="Cyan">
+                <color rgba="0 1.0 1.0 1.0"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="-0.5 0 -0.5" rpy="0 0 0"/>
+            <geometry>
+                <box size="1 1 1" />
+            </geometry>
+        </collision>
+    </link>
+</robot>
