@@ -13,9 +13,9 @@ class ROBOT:
 
     def __init__(self, SolutionID, name):
         self.robotId = p.loadURDF("robot_"+ name + ".urdf")
+        self.name = name
 
         pyrosim.Prepare_To_Simulate(self.robotId)
-
         ROBOT.Prepare_To_Sense(self)
         ROBOT.Prepare_To_Act(self)
         self.ID = SolutionID
@@ -57,9 +57,14 @@ class ROBOT:
         self.xPosition = self.basePosition[0]
         self.yPosition = self.basePosition[1]
 
+        print("Position of robot is " + self.name + " is X: " + str(self.xPosition) + " Y: " + str(self.yPosition))
+
 
         f = open("tmp" + str(self.ID) + ".txt", "w")
-        f.write(str(self.xPosition))
+
+        # I want the robot to have to be the closest to the middle point as possible,
+        # so the fitness would be |x| * |y| 
+        f.write(str(abs(self.xPosition)*abs(self.yPosition)))
         
         f.close()
 

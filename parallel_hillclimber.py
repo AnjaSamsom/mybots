@@ -1,7 +1,6 @@
 import copy
 from solution import SOLUTION
 import constants as c
-import random
 import os
 
 class PARALLEL_HILLCLIMBER:
@@ -23,7 +22,7 @@ class PARALLEL_HILLCLIMBER:
         self.Spawn()
         self.Mutate()
         self.Evaluate(self.children)
-        self.Print()
+        #self.Print()
         self.Select()
         
         

@@ -1,7 +1,7 @@
 import numpy
 
 pi = numpy.pi
-runs = 2000
+runs = 1000
 
 
 amplitude = pi/4
@@ -26,4 +26,4 @@ populationSize = 5
 numSensorNeurons = 3
 numMotorNeurons = 2
 
-motorJointRange = 0.2
+motorJointRange = 0.4

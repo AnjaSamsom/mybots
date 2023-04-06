@@ -23,8 +23,7 @@ class SIMULATION:
         name_list = ["A", "B"]
         self.robots = []
         for name in name_list:
-            self.robots.append(ROBOT(SolutionID, name))
-        
+            self.robots.append(ROBOT(SolutionID, name))        
 
     def Run(self):
         for t in range(c.runs):

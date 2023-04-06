@@ -8,8 +8,11 @@ import constants as c
 class SOLUTION:
     def __init__(self, nextAvailableID):
         self.myID = nextAvailableID
-        self.weights = 2 * numpy.random.rand(c.numSensorNeurons, c.numMotorNeurons) -1
-        self.weights = self.weights * c.numMotorNeurons - 1
+        self.weights_A = 2 * numpy.random.rand(c.numSensorNeurons, c.numMotorNeurons) -1
+        self.weights_A = self.weights_A * c.numMotorNeurons - 1
+
+        self.weights_B = 2 * numpy.random.rand(c.numSensorNeurons, c.numMotorNeurons) -1
+        self.weights_B = self.weights_B * c.numMotorNeurons - 1
         self.fitness = 0
 
 
@@ -42,7 +45,9 @@ class SOLUTION:
         row = random.randint(0,c.numSensorNeurons-1)
         column = random.randint(0,c.numMotorNeurons-1)
 
-        self.weights[row,column] = 2* (random.random() * c.numMotorNeurons - 1) -1
+        self.weights_A[row,column] = 2* (random.random() * c.numMotorNeurons - 1) -1
+        self.weights_B[row,column] = 2* (random.random() * c.numMotorNeurons - 1) -1
+
 
 
 
@@ -86,7 +91,7 @@ class SOLUTION:
 
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):
-                    pyrosim.Send_Synapse(sourceNeuronName = currentRow , targetNeuronName = currentColumn+c.numSensorNeurons , weight = self.weights[currentRow][currentColumn])
+                    pyrosim.Send_Synapse(sourceNeuronName = currentRow , targetNeuronName = currentColumn+c.numSensorNeurons , weight = self.weights_A[currentRow][currentColumn])
         
         pyrosim.End()
 
@@ -100,7 +105,7 @@ class SOLUTION:
 
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):
-                    pyrosim.Send_Synapse(sourceNeuronName = currentRow , targetNeuronName = currentColumn+c.numSensorNeurons , weight = self.weights[currentRow][currentColumn])
+                    pyrosim.Send_Synapse(sourceNeuronName = currentRow , targetNeuronName = currentColumn+c.numSensorNeurons , weight = self.weights_B[currentRow][currentColumn])
 
         pyrosim.End()
          
