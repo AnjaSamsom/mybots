@@ -34,11 +34,21 @@ class SIMULATION:
                 robot.Think()
                 robot.Act(t)
 
-
     def __del__(self):
         p.disconnect()
 
     def Get_Fitness(self):
         for robot in self.robots:
             robot.Get_Fitness()
+
+        robotA = self.robots[0]
+        robotB = self.robots[1]
+
+        difference = [0,0]
+        for num in range(2):
+            print(num)
+            difference[num] = robotA.coordinates[num] - robotB.coordinates[num]
+        print(difference)
+
+        exit()
 

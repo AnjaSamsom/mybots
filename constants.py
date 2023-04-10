@@ -16,12 +16,12 @@ amplitudeB = pi/4
 frequencyB = 6
 phaseOffsetB = pi/4
 
-maxforce = 25
+maxforce = 50
 
 sleep = 0
 
-numberOfGenerations = 5
-populationSize = 5
+numberOfGenerations = 1
+populationSize = 1
 
 numSensorNeurons = 3
 numMotorNeurons = 2

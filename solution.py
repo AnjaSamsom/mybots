@@ -30,16 +30,16 @@ class SOLUTION:
         os.system("start /B python simulate.py " + mode + " " + str(self.myID))
 
     def Wait_For_Simulation_To_End(self):
-        fitnessFileName = "fitness" + str(self.myID) + ".txt"
-        while not os.path.exists(fitnessFileName):
-            time.sleep(0.01)
+        for name in ["A", "B"]:
+            fitnessFileName = "fitness_" + name + str(self.myID) + ".txt"
+            while not os.path.exists(fitnessFileName):
+                time.sleep(0.01)
 
-        f = open(fitnessFileName, "r")
-        self.fitness = float(f.read())
+            f = open(fitnessFileName, "r")
+            self.fitness = float(f.read())
 
-
-        f.close()
-        os.system("del " + fitnessFileName)
+            f.close()
+            os.system("del " + fitnessFileName)
 
     def Mutate(self):
         row = random.randint(0,c.numSensorNeurons-1)
