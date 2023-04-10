@@ -2,6 +2,7 @@ from world import WORLD
 from robot import ROBOT
 from sensor import SENSOR
 from motor import MOTOR
+import math
 
 import pybullet as p
 import pybullet_data
@@ -46,9 +47,22 @@ class SIMULATION:
 
         difference = [0,0]
         for num in range(2):
-            print(num)
             difference[num] = robotA.coordinates[num] - robotB.coordinates[num]
-        print(difference)
 
+        print("cartesian:")
+        print(difference)
+        print()
+
+        x = difference[0]
+        y = difference[1]
+
+        r = math.sqrt(x*x + y*y)
+        theta = math.atan(y/x)
+
+        polar = [r, theta]
+
+        print("polar: ")
+        print(polar)
+        print()
         exit()
 
