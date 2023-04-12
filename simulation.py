@@ -49,9 +49,9 @@ class SIMULATION:
         for num in range(2):
             difference[num] = robotA.coordinates[num] - robotB.coordinates[num]
 
-        print("cartesian:")
-        print(difference)
-        print()
+        # print("cartesian:")
+        # print(difference)
+        # print()
 
         x = difference[0]
         y = difference[1]
@@ -61,9 +61,9 @@ class SIMULATION:
 
         polar = [r, theta]
 
-        print("polar: ")
-        print(polar)
-        print()
+        # print("polar: ")
+        # print(polar)
+        # print()
 
 
         for robot in self.robots:
