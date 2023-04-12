@@ -20,8 +20,6 @@ class SOLUTION:
         self.myID = nextAvailableID
         nextAvailableID += 1
 
-
-
     def Start_Simulation(self, mode):
         self.Create_World()
         self.Create_Bodies()
@@ -47,8 +45,6 @@ class SOLUTION:
 
         self.weights_A[row,column] = 2* (random.random() * c.numMotorNeurons - 1) -1
         self.weights_B[row,column] = 2* (random.random() * c.numMotorNeurons - 1) -1
-
-
 
 
     def Create_World(self):

@@ -24,8 +24,7 @@ class PARALLEL_HILLCLIMBER:
         self.Evaluate(self.children)
         #self.Print()
         self.Select()
-        
-        
+         
     def Print(self):
         print()
         for key in self.parents.keys():
@@ -42,7 +41,6 @@ class PARALLEL_HILLCLIMBER:
         minimum.Start_Simulation("GUI")
         print("the best fitness value is: " + str(minimum.fitness))
 
-
     def Evolve(self):
         self.Evaluate(self.parents)
         for currentGeneration in range(c.numberOfGenerations):
@@ -56,11 +54,9 @@ class PARALLEL_HILLCLIMBER:
             self.nextAvailableID += 1
             self.children[key] = unit
 
-
     def Mutate(self):
         for key in self.children.keys():
             self.children[key].Mutate()
-
 
     def Select(self):
         # if the child does better, set the new parent to the child

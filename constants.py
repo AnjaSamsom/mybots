@@ -3,7 +3,6 @@ import numpy
 pi = numpy.pi
 runs = 1000
 
-
 amplitude = pi/4
 frequency = 6
 offset = 0
@@ -16,7 +15,7 @@ amplitudeB = pi/4
 frequencyB = 6
 phaseOffsetB = pi/4
 
-maxforce = 50
+maxforce = 25
 
 sleep = 0
 

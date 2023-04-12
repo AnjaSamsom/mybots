@@ -64,5 +64,15 @@ class SIMULATION:
         print("polar: ")
         print(polar)
         print()
-        exit()
+
+
+        for robot in self.robots:
+            fitnessFileName = "fitness_" + robot.name + str(robot.ID) + ".txt"
+
+            f = open(fitnessFileName + ".txt", "w")
+
+            f.write(str(r))
+            
+            f.close()
+
 
