@@ -66,6 +66,7 @@ class SIMULATION:
         # print()
 
 
+        # maybe i can rewrite the fitness file to contain the distance between the two and it can minimize that
         for robot in self.robots:
             fitnessFileName = "fitness_" + robot.name + str(robot.ID) + ".txt"
 

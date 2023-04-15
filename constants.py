@@ -19,8 +19,8 @@ maxforce = 25
 
 sleep = 0
 
-numberOfGenerations = 5
-populationSize = 5
+numberOfGenerations = 2
+populationSize = 2
 
 numSensorNeurons = 3
 numMotorNeurons = 2
