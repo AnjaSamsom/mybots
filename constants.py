@@ -22,7 +22,7 @@ sleep = 0
 numberOfGenerations = 5
 populationSize = 5
 
-numSensorNeurons = 4 
+numSensorNeurons = 3
 numMotorNeurons = 2
 
 motorJointRange = 0.4

@@ -2,9 +2,10 @@ import copy
 from solution import SOLUTION
 import constants as c
 import os
+import random
 
 class PARALLEL_HILLCLIMBER:
-    def __init__(self):
+    def __init__(self, Ax, Bx, y):
 
         os.system("del brain*.nndf")
         os.system("del fitness*.txt")
@@ -14,7 +15,7 @@ class PARALLEL_HILLCLIMBER:
         self.nextAvailableID = 0
 
         for i in range(c.populationSize):
-            self.parents[i] = SOLUTION(self.nextAvailableID)
+            self.parents[i] = SOLUTION(self.nextAvailableID, Ax, Bx, y)
             self.nextAvailableID  += 1
 
     def Evolve_For_One_Generation(self):

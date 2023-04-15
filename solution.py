@@ -6,7 +6,7 @@ import time
 import constants as c
 
 class SOLUTION:
-    def __init__(self, nextAvailableID):
+    def __init__(self, nextAvailableID, Ax, Bx, y):
         self.myID = nextAvailableID
         self.weights_A = 2 * numpy.random.rand(c.numSensorNeurons, c.numMotorNeurons) -1
         self.weights_A = self.weights_A * c.numMotorNeurons - 1
@@ -14,6 +14,12 @@ class SOLUTION:
         self.weights_B = 2 * numpy.random.rand(c.numSensorNeurons, c.numMotorNeurons) -1
         self.weights_B = self.weights_B * c.numMotorNeurons - 1
         self.fitness = 0
+
+        self.Ax = Ax
+        self.Bx = Bx
+        self.y = y
+
+        
 
 
     def Set_ID(self, nextAvailableID):
@@ -54,8 +60,10 @@ class SOLUTION:
 
     def Create_Bodies(self):
         pyrosim.Start_URDF("robot_A.urdf")
-        x = random.randint(-10, 10)
-        y = random.randint(-10, 10)
+
+        x = self.Ax
+        y = self.y
+
 
         pyrosim.Send_Cube(name="Torso", pos=[x,y,1.5], size=[1,1,1])
         pyrosim.Send_Joint( name = "Torso_FrontLeg" , parent= "Torso" , child = "FrontLeg" , type = "revolute", position = [x+0.5,y,1], jointAxis = "0 1 0")
@@ -71,12 +79,9 @@ class SOLUTION:
         # this is putting the two robots in the same row so because they can't turn
         # making sure that they are far enough away before the spawn
         pyrosim.Start_URDF("robot_B.urdf")
-        temp_x = random.randint(-10, 10)
-        while abs(x-temp_x) < 6:
-            temp_x = random.randint(-10, 10)
 
-        x = temp_x
 
+        x = self.Bx
              
 
 
@@ -96,9 +101,8 @@ class SOLUTION:
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
         pyrosim.Send_Sensor_Neuron(name = 1 , linkName = "BackLeg")
         pyrosim.Send_Sensor_Neuron(name = 2 , linkName = "FrontLeg")
-        pyrosim.Send_Sensor_Neuron(name = 3 , linkName = "Hat")
-        pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_BackLeg")
-        pyrosim.Send_Motor_Neuron( name = 5 , jointName = "Torso_FrontLeg")
+        pyrosim.Send_Motor_Neuron( name = 3 , jointName = "Torso_BackLeg")
+        pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_FrontLeg")
 
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):
@@ -111,9 +115,8 @@ class SOLUTION:
         pyrosim.Send_Sensor_Neuron(name = 0 , linkName = "Torso")
         pyrosim.Send_Sensor_Neuron(name = 1 , linkName = "BackLeg")
         pyrosim.Send_Sensor_Neuron(name = 2 , linkName = "FrontLeg")
-        pyrosim.Send_Sensor_Neuron(name = 3 , linkName = "Hat")
-        pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_BackLeg")
-        pyrosim.Send_Motor_Neuron( name = 5 , jointName = "Torso_FrontLeg")
+        pyrosim.Send_Motor_Neuron( name = 3 , jointName = "Torso_BackLeg")
+        pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_FrontLeg")
 
         for currentRow in range(c.numSensorNeurons):
             for currentColumn in range(c.numMotorNeurons):
