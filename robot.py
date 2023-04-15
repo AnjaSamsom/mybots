@@ -43,7 +43,6 @@ class ROBOT:
                 jointName = self.nn.Get_Motor_Neurons_Joint(neuronName)
                 desiredAngle = self.nn.Get_Value_Of(neuronName)
 
-
                 self.motors[jointName].Set_Value(self.robotId, desiredAngle * c.motorJointRange)
 
     def Think(self):
@@ -51,6 +50,8 @@ class ROBOT:
         #self.nn.Print()
 
     def Get_Fitness(self):
+
+        # a bunch of stuff going on here
         self.basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         self.basePosition = self.basePositionAndOrientation[0]
         self.xPosition = self.basePosition[0]
@@ -60,9 +61,14 @@ class ROBOT:
         self.coordinates[1] = self.yPosition
 
 
+        self.stateOfLinkZero = p.getLinkState(self.robotId,0)
+        self.positionOfLinkZero = self.stateOfLinkZero[0]
+        self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
+
+
         f = open("tmp_" + self.name + str(self.ID) + ".txt", "w")
 
-        f.write(str(self.xPosition))
+        f.write(str(self.xCoordinateOfLinkZero))
         
         f.close()
 
