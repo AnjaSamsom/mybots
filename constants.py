@@ -1,7 +1,7 @@
 import numpy
 
 pi = numpy.pi
-runs = 1000
+runs = 2500
 
 amplitude = pi/4
 frequency = 6
