@@ -30,8 +30,20 @@ class SIMULATION:
         for t in range(c.runs):
             time.sleep(c.sleep)
             p.stepSimulation()
+
+            robotA = self.robots[0]
+            robotB = self.robots[1]
+
+
+            difference = robotA.coordinates[0] - robotB.coordinates[0]
+
+            # when running through, robot A and robot B both take the distance between
+            # the two robots for their hat sensor
+
             for robot in self.robots:
                 robot.Sense(t)
+                robotA.sensors["Hat"].Rewrite_Sensor(t, difference)
+                robotB.sensors["Hat"].Rewrite_Sensor(t, difference)
                 robot.Think()
                 robot.Act(t)
 
@@ -42,38 +54,22 @@ class SIMULATION:
         for robot in self.robots:
             robot.Get_Fitness()
 
-        robotA = self.robots[0]
-        robotB = self.robots[1]
 
-        difference = [0,0]
-        for num in range(2):
-            difference[num] = robotA.coordinates[num] - robotB.coordinates[num]
-
-        # print("cartesian:")
-        # print(difference)
-        # print()
-
-        x = difference[0]
-        y = difference[1]
-
-        r = math.sqrt(x*x + y*y)
-        theta = math.atan(y/x)
-
-        polar = [r, theta]
-
-        # print("polar: ")
-        # print(polar)
-        # print()
-
-
-        # maybe i can rewrite the fitness file to contain the distance between the two and it can minimize that
-        for robot in self.robots:
-            fitnessFileName = "fitness_" + robot.name + str(robot.ID) + ".txt"
-
-            f = open(fitnessFileName + ".txt", "w")
-
-            f.write(str(r))
+            robotA = self.robots[0]
+            robotB = self.robots[1]
             
-            f.close()
+            difference = robotA.coordinates[0] - robotB.coordinates[0]
+
+"""             fitnessFileName = "fitness_" + robot.name + str(robot.ID) + ".txt"
+
+            f = open("tmp_" + fitnessFileName + ".txt", "w")
+
+            f.write(str(difference))
+        
+            f.close() """
+
+
+
+
 
 
