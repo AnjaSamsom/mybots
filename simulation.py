@@ -59,16 +59,7 @@ class SIMULATION:
             robotB = self.robots[1]
             
             difference = robotA.coordinates[0] - robotB.coordinates[0]
-
-            fitnessFileName = "fitness_" + robot.name + str(robot.ID) + ".txt"
-
-            f = open("tmp_" + fitnessFileName + ".txt", "w")
-
-            f.write(str(difference))
-        
-            f.close()
-
-
+            #print(difference)
 
 
 

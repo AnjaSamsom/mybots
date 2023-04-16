@@ -11,7 +11,7 @@ Bx = temp_x
 y = random.randint(-10, 10)
 
 phc = PARALLEL_HILLCLIMBER(Ax, Bx, y)
-
 phc.Evolve()
 phc.Show_Best()
+
 

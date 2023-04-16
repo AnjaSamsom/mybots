@@ -66,3 +66,13 @@ class ROBOT:
         self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
 
 
+        f = open("tmp_" + self.name + str(self.ID) + ".txt", "w")
+
+        f.write(str(self.xCoordinateOfLinkZero))
+        
+        f.close()
+
+        fitnessFileName = "fitness_" + self.name + str(self.ID) + ".txt"
+
+        os.system("rename tmp_" + self.name + str(self.ID) +  ".txt " + fitnessFileName)
+
