@@ -1,7 +1,7 @@
 import numpy
 
 pi = numpy.pi
-runs = 2500
+runs = 10000
 
 amplitude = pi/4
 frequency = 6
@@ -19,8 +19,8 @@ maxforce = 25
 
 sleep = 0
 
-numberOfGenerations = 5
-populationSize = 5
+numberOfGenerations = 10
+populationSize = 10
 
 numSensorNeurons = 3
 numMotorNeurons = 2

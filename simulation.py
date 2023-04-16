@@ -52,31 +52,31 @@ class SIMULATION:
         p.disconnect()
 
     def Get_Fitness(self):
-        for robot in self.robots:
-            robot.Get_Fitness()
+        robotA = self.robots[0]
+        robotB = self.robots[1]
+
+        robotA.Get_Fitness()
+        robotB.Get_Fitness()
+
+           
+        difference = abs(robotA.coordinates[0] - robotB.coordinates[0])
+        #print(difference)
+
+        robot = robotA
 
 
-            robotA = self.robots[0]
-            robotB = self.robots[1]
-            
-            difference = abs(robotA.coordinates[0] - robotB.coordinates[0])
-            #print(difference)
+        # going in the file again to write it with the new fitness value being the
+        # difference between the distance of the two robots
+        f = open("tmp_" + str(robot.ID) + ".txt", "w")
 
-
-            # going in the file again to write it with the new fitness value being the
-            # difference between the distance of the two robots
-            f = open("tmp_" + robot.name + str(robot.ID) + ".txt", "w")
-
-            f.write(str(difference))
+        f.write(str(difference))
         
-            f.close()
+        f.close()
 
-            fitnessFileName = "fitness_" + robot.name + str(robot.ID) + ".txt"
+        fitnessFileName = "fitness_" +  str(robot.ID) + ".txt"
 
-            print("rewrite " + fitnessFileName + " with " + str(difference))
-
-            os.system("rename tmp_" + robot.name + str(robot.ID) +  ".txt " + fitnessFileName)
-
+        print("rewrite " + fitnessFileName + " with " + str(difference))
+        os.system("rename tmp_" + str(robot.ID) +  ".txt " + fitnessFileName)
     
 
 
