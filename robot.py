@@ -74,5 +74,4 @@ class ROBOT:
 
         fitnessFileName = "fitness_" + self.name + str(self.ID) + ".txt"
 
-        os.system("rename tmp_" + self.name + str(self.ID) +  ".txt " + fitnessFileName)
 

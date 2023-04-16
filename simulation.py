@@ -9,6 +9,7 @@ import pybullet_data
 import pyrosim.pyrosim as pyrosim
 import time
 import constants as c
+import os
 
 class SIMULATION:
 
@@ -58,9 +59,25 @@ class SIMULATION:
             robotA = self.robots[0]
             robotB = self.robots[1]
             
-            difference = robotA.coordinates[0] - robotB.coordinates[0]
+            difference = abs(robotA.coordinates[0] - robotB.coordinates[0])
             #print(difference)
 
+
+            # going in the file again to write it with the new fitness value being the
+            # difference between the distance of the two robots
+            f = open("tmp_" + robot.name + str(robot.ID) + ".txt", "w")
+
+            f.write(str(difference))
+        
+            f.close()
+
+            fitnessFileName = "fitness_" + robot.name + str(robot.ID) + ".txt"
+
+            print("rewrite " + fitnessFileName + " with " + str(difference))
+
+            os.system("rename tmp_" + robot.name + str(robot.ID) +  ".txt " + fitnessFileName)
+
+    
 
 
 

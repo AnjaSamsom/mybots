@@ -33,9 +33,12 @@ class PARALLEL_HILLCLIMBER:
         print()
 
     def Show_Best(self):
+
+        print("now in show best")
         minimum = self.parents[0]
         for key in self.parents.keys():
             unit = self.parents[key]
+            print(unit.fitness)
             if unit.fitness < minimum.fitness:
                 minimum = unit
 
