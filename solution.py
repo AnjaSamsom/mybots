@@ -38,7 +38,13 @@ class SOLUTION:
         fitnessFileName = "fitness_" + str(self.myID) + ".txt"
         while not os.path.exists(fitnessFileName):
             time.sleep(0.01)
-        f = open(fitnessFileName, "r")
+
+        try:
+            f = open(fitnessFileName, "r")
+        except:
+            time.sleep(1)
+            f = open(fitnessFileName, "r")
+       
         self.fitness = float(f.read())
 
         f.close()
