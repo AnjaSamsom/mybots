@@ -40,6 +40,10 @@ class PARALLEL_HILLCLIMBER:
             sol = self.parents[key]
             self.fitness_matrix[population][currentGeneration] = sol.fitness
             population += 1
+
+        np.savetxt("matrixA.csv", self.fitness_matrix, delimiter =', ')
+        np.save("matrixA.npy", self.fitness_matrix)
+
          
     def Print(self):
         print()
