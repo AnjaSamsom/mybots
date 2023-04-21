@@ -3,7 +3,7 @@ from robot import ROBOT
 from sensor import SENSOR
 from motor import MOTOR
 import math
-
+from parallel_hillclimber import PARALLEL_HILLCLIMBER
 import pybullet as p
 import pybullet_data
 import pyrosim.pyrosim as pyrosim
@@ -43,8 +43,6 @@ class SIMULATION:
 
             for robot in self.robots:
                 robot.Sense(t)
-                robotA.sensors["Hat"].Rewrite_Sensor(t, difference)
-                robotB.sensors["Hat"].Rewrite_Sensor(t, difference)
                 robot.Think()
                 robot.Act(t)
 
@@ -75,8 +73,8 @@ class SIMULATION:
 
         fitnessFileName = "fitness_" +  str(robot.ID) + ".txt"
 
-        print("rewrite " + fitnessFileName + " with " + str(difference))
         os.system("rename tmp_" + str(robot.ID) +  ".txt " + fitnessFileName)
+
     
 
 

@@ -7,5 +7,6 @@ SolutionID = sys.argv[2]
 
 
 simulation = SIMULATION(direct_or_GUI, SolutionID)
+
 simulation.Run()
 simulation.Get_Fitness()

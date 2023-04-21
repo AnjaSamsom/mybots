@@ -3,6 +3,7 @@ from solution import SOLUTION
 import constants as c
 import os
 import random
+import numpy as np
 
 class PARALLEL_HILLCLIMBER:
     def __init__(self, Ax, Bx, y):
@@ -14,17 +15,31 @@ class PARALLEL_HILLCLIMBER:
 
         self.nextAvailableID = 0
 
+        self.fitness_matrix = np.zeros(shape=(c.populationSize,c.numberOfGenerations))
+
+
         for i in range(c.populationSize):
             self.parents[i] = SOLUTION(self.nextAvailableID, Ax, Bx, y)
             self.nextAvailableID  += 1
 
-    def Evolve_For_One_Generation(self):
+
+        
+
+    def Evolve_For_One_Generation(self, currentGeneration):
         
         self.Spawn()
         self.Mutate()
         self.Evaluate(self.children)
-        #self.Print()
         self.Select()
+        self.Store_Fitness(currentGeneration)
+
+
+    def Store_Fitness(self, currentGeneration):
+        population = 0
+        for key in self.parents:
+            sol = self.parents[key]
+            self.fitness_matrix[population][currentGeneration] = sol.fitness
+            population += 1
          
     def Print(self):
         print()
@@ -34,21 +49,31 @@ class PARALLEL_HILLCLIMBER:
 
     def Show_Best(self):
 
-        print("now in show best")
         minimum = self.parents[0]
         for key in self.parents.keys():
             unit = self.parents[key]
-            print(unit.fitness)
+            #print(unit.fitness)
             if unit.fitness < minimum.fitness:
                 minimum = unit
+
+
+        print(self.fitness_matrix)
+
 
         minimum.Start_Simulation("GUI")
         print("the best fitness value is: " + str(minimum.fitness))
 
+        f = open("results.txt", "a")
+
+        f.write(str(minimum.fitness))
+        
+        f.close()
+
     def Evolve(self):
         self.Evaluate(self.parents)
         for currentGeneration in range(c.numberOfGenerations):
-            self.Evolve_For_One_Generation()
+            self.Evolve_For_One_Generation(currentGeneration)
+
 
     def Spawn(self):
         self.children = {}
@@ -71,6 +96,7 @@ class PARALLEL_HILLCLIMBER:
     def Evaluate(self, solutions):
         for key in solutions.keys():
             solutions[key].Start_Simulation("DIRECT")
+
 
         for key in solutions.keys():
             solutions[key].Wait_For_Simulation_To_End()
