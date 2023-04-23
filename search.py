@@ -1,17 +1,40 @@
 from parallel_hillclimber import PARALLEL_HILLCLIMBER
 import random
+import location as loc
+import os
+import sys
+import constants as c
 
-Ax = random.randint(-10, 10)
-temp_x = random.randint(-10, 10)
-while abs(Ax-temp_x) < 6:
-    temp_x = random.randint(-10, 10)
+# change this to change which type of robot you are using
+legs = 4
 
-Bx = temp_x
+# getting random numbers
+Ax = loc.Ax
+Bx = loc.Bx
+y = loc.y
 
-y = random.randint(-10, 10)
+os.system("del robot*.nndf")
+os.system("del brain*.txt")
 
-phc = PARALLEL_HILLCLIMBER(Ax, Bx, y)
-phc.Evolve()
-phc.Show_Best()
 
+if legs==2:
+    # two legs
+    print("two legs")
+    c.numSensorNeurons = 3
+    c.numMotorNeurons = 2
+
+    phc_A = PARALLEL_HILLCLIMBER(Ax, Bx, y, 2)
+    phc_A.Evolve()
+    phc_A.Show_Best()
+
+
+elif legs == 4:
+    # four legs
+    print("four legs")
+    c.numSensorNeurons = 5
+    c.numMotorNeurons = 8
+
+    phc_B = PARALLEL_HILLCLIMBER(Ax, Bx, y, 4)
+    phc_B.Evolve()
+    phc_B.Show_Best()
 

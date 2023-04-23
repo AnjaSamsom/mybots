@@ -2,11 +2,10 @@ import copy
 from solution import SOLUTION
 import constants as c
 import os
-import random
 import numpy as np
 
 class PARALLEL_HILLCLIMBER:
-    def __init__(self, Ax, Bx, y):
+    def __init__(self, Ax, Bx, y, legs):
 
         os.system("del brain*.nndf")
         os.system("del fitness*.txt")
@@ -15,6 +14,8 @@ class PARALLEL_HILLCLIMBER:
 
         self.nextAvailableID = 0
 
+        self.legs = legs
+
         self.fitness_matrix = np.zeros(shape=(c.populationSize,c.numberOfGenerations))
 
 
@@ -22,27 +23,28 @@ class PARALLEL_HILLCLIMBER:
             self.parents[i] = SOLUTION(self.nextAvailableID, Ax, Bx, y)
             self.nextAvailableID  += 1
 
-
-        
-
     def Evolve_For_One_Generation(self, currentGeneration):
         
         self.Spawn()
         self.Mutate()
         self.Evaluate(self.children)
         self.Select()
-        self.Store_Fitness(currentGeneration)
+        self.Store_Fitness(currentGeneration, self.legs)
 
 
-    def Store_Fitness(self, currentGeneration):
+    def Store_Fitness(self, currentGeneration, legs):
         population = 0
         for key in self.parents:
             sol = self.parents[key]
             self.fitness_matrix[population][currentGeneration] = sol.fitness
             population += 1
 
-        np.savetxt("matrixA.csv", self.fitness_matrix, delimiter =', ')
-        np.save("matrixA.npy", self.fitness_matrix)
+        if(legs == 2):
+            test_name = "A"
+        elif(legs == 4):
+            test_name = "B"
+        np.savetxt("matrix" + test_name + ".csv", self.fitness_matrix, delimiter =', ')
+        np.save("matrix" + test_name + ".npy", self.fitness_matrix)
 
          
     def Print(self):
@@ -64,7 +66,7 @@ class PARALLEL_HILLCLIMBER:
         print(self.fitness_matrix)
 
 
-        minimum.Start_Simulation("GUI")
+        minimum.Start_Simulation("GUI", self.legs)
         print("the best fitness value is: " + str(minimum.fitness))
 
         f = open("results.txt", "a")
@@ -99,7 +101,7 @@ class PARALLEL_HILLCLIMBER:
 
     def Evaluate(self, solutions):
         for key in solutions.keys():
-            solutions[key].Start_Simulation("DIRECT")
+            solutions[key].Start_Simulation("DIRECT", self.legs)
 
 
         for key in solutions.keys():

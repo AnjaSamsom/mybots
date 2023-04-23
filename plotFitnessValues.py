@@ -1,10 +1,16 @@
 import numpy
-M = numpy.load("matrixA.npy")
 import matplotlib.pyplot
 
+MA = numpy.load("matrixA.npy")
+MB = numpy.load("matrixB.npy")
 
-for i in range(10):
-    row = M[i,:]
-    matplotlib.pyplot.plot(row)
+MA = numpy.mean(MA, axis = 0)
+MB = numpy.mean(MB, axis = 0)
 
+
+
+matplotlib.pyplot.plot(MA, color = "red", label = "two legged robots")
+matplotlib.pyplot.plot(MB, color = "blue", label = "four legged robot")
+
+matplotlib.pyplot.legend(loc="upper left")
 matplotlib.pyplot.show()
