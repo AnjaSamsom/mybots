@@ -1,8 +1,5 @@
 from parallel_hillclimber import PARALLEL_HILLCLIMBER
-import random
 import location as loc
-import os
-import sys
 import constants as c
 
 # change this to change which type of robot you are using
@@ -12,9 +9,6 @@ legs = 4
 Ax = loc.Ax
 Bx = loc.Bx
 y = loc.y
-
-os.system("del robot*.nndf")
-os.system("del brain*.txt")
 
 
 if legs==2:

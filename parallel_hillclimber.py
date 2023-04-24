@@ -3,6 +3,7 @@ from solution import SOLUTION
 import constants as c
 import os
 import numpy as np
+import location as l
 
 class PARALLEL_HILLCLIMBER:
     def __init__(self, Ax, Bx, y, legs):
@@ -29,22 +30,17 @@ class PARALLEL_HILLCLIMBER:
         self.Mutate()
         self.Evaluate(self.children)
         self.Select()
-        self.Store_Fitness(currentGeneration, self.legs)
+        self.Store_Fitness(currentGeneration)
 
 
-    def Store_Fitness(self, currentGeneration, legs):
+    def Store_Fitness(self, currentGeneration):
         population = 0
         for key in self.parents:
             sol = self.parents[key]
             self.fitness_matrix[population][currentGeneration] = sol.fitness
             population += 1
 
-        if(legs == 2):
-            test_name = "A"
-        elif(legs == 4):
-            test_name = "B"
-        np.savetxt("matrix" + test_name + ".csv", self.fitness_matrix, delimiter =', ')
-        np.save("matrix" + test_name + ".npy", self.fitness_matrix)
+
 
          
     def Print(self):
@@ -63,9 +59,6 @@ class PARALLEL_HILLCLIMBER:
                 minimum = unit
 
 
-        print(self.fitness_matrix)
-
-
         minimum.Start_Simulation("GUI", self.legs)
         print("the best fitness value is: " + str(minimum.fitness))
 
@@ -74,6 +67,13 @@ class PARALLEL_HILLCLIMBER:
         f.write(str(minimum.fitness))
         
         f.close()
+
+        if(self.legs == 2):
+            test_name = "A" + l.trial
+        elif(self.legs == 4):
+            test_name = "B" + l.trial
+        np.savetxt("matrix" + test_name + ".csv", self.fitness_matrix, delimiter =', ')
+        np.save("matrix" + test_name + ".npy", self.fitness_matrix)
 
     def Evolve(self):
         self.Evaluate(self.parents)
