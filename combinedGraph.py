@@ -6,7 +6,7 @@ import matplotlib.pyplot
 # the number after is the trial, a trial is using the same random placement of the two robts for fairness
 
 def main():
-    plot_mean()
+    plot_all_best()
 
 def plot_all_best():
     A_mins = [0,0,0,0,0,0,0,0,0,0]
@@ -166,6 +166,8 @@ def plot_trial(i):
 
     matplotlib.pyplot.legend(loc="upper left")
     matplotlib.pyplot.title("Plot Trial " + i)
+    matplotlib.pyplot.xlabel("Generation")
+    matplotlib.pyplot.ylabel("Fitness Value")
 
     matplotlib.pyplot.show()
 
