@@ -59,7 +59,7 @@ class PARALLEL_HILLCLIMBER:
                 minimum = unit
 
 
-        minimum.Start_Simulation("GUI", self.legs)
+        minimum.Start_Simulation("DIRECT", self.legs)
         print("the best fitness value is: " + str(minimum.fitness))
 
         f = open("results.txt", "a")

@@ -8,5 +8,3 @@ while abs(Ax-temp_x) < 6:
 Bx = temp_x
 
 y = random.randint(-10, 10)
-
-trial = "5"

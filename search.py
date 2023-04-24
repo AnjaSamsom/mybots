@@ -1,17 +1,25 @@
 from parallel_hillclimber import PARALLEL_HILLCLIMBER
-import location as loc
+import location as l
 import constants as c
+import os
+import time
 
-# change this to change which type of robot you are using
-legs = 4
+trial = 1
+while trial<=10:
+    trial = str(trial)
 
-# getting random numbers
-Ax = loc.Ax
-Bx = loc.Bx
-y = loc.y
+    os.system("python location.py")
+    l.trial = trial
+
+    # change this to change which type of robot you are using
+
+    # getting random numbers
+    Ax = l.Ax
+    Bx = l.Bx
+    y = l.y
 
 
-if legs==2:
+    legs = 2
     # two legs
     print("two legs")
     c.numSensorNeurons = 3
@@ -21,8 +29,10 @@ if legs==2:
     phc_A.Evolve()
     phc_A.Show_Best()
 
+    time.sleep(10)
 
-elif legs == 4:
+
+    legs = 4
     # four legs
     print("four legs")
     c.numSensorNeurons = 5
@@ -32,3 +42,9 @@ elif legs == 4:
     phc_B.Evolve()
     phc_B.Show_Best()
 
+    time.sleep(10)
+
+    trial = int(trial)
+    trial += 1
+
+os.system("python combinedGraph.py")
