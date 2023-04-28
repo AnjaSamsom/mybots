@@ -43,7 +43,7 @@ def plot_all_best():
     i = int(i)
 
 def plot_all_means():
-    for i in range(1,41):
+    for i in range(1,51):
         i = str(i)
         A = numpy.load("matrixA" + i + ".npy")
         B = numpy.load("matrixB" + i + ".npy")

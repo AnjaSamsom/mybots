@@ -4,7 +4,7 @@ import constants as c
 import os
 import time
 
-trial = 32
+trial = 42
 while trial<=50:
     trial = str(trial)
 
