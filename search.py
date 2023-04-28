@@ -4,8 +4,8 @@ import constants as c
 import os
 import time
 
-trial = 1
-while trial<=10:
+trial = 32
+while trial<=50:
     trial = str(trial)
 
     os.system("python location.py")
