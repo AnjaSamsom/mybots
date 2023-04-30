@@ -6,10 +6,10 @@ import matplotlib.pyplot
 # the number after is the trial, a trial is using the same random placement of the two robts for fairness
 
 def main():
-    plot_mean(50)
+    #plot_mean(50)
     #plot_trial(10)
     #plot_all_best(50)
-    #plot_all_means(50)
+    plot_all_means(50)
 
 
 def plot_all_best(num_trials):
@@ -19,7 +19,6 @@ def plot_all_best(num_trials):
     for i in range(num_trials):
         trials.append(i+1)
 
-    print(trials)
     for i in range(1,num_trials+1):
         i = str(i)
         A = numpy.load("matrixA" + i + ".npy")
